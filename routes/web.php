@@ -10,3 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'],function(){
+    Route::get('/', 'AuthController@showLoginForm')->name('login');
+});
+
+
