@@ -7,3 +7,7 @@ assim terá permissão nas pastas
 
 - Criando AuthController não é resource
 php artisan make:controller Admin\AuthController
+
+- Instalando os plugins do npm
+npm install
+
