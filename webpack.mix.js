@@ -16,6 +16,10 @@ mix
    .sass('resources/views/admin/assets/scss/boot.scss', 'public/backend/assets/css/boot.css')
    .sass('resources/views/admin/assets/scss/login.scss', 'public/backend/assets/css/login.css')
 
+   .copyDirectory('resources/views/admin/assets/css/fonts','public/backend/assets/css/fonts')
+
+   .copyDirectory('resources/views/admin/assets/images','public/backend/assets/images')
+
    .options({
       processCssUrls: false
    })
