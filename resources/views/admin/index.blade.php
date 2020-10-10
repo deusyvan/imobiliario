@@ -54,7 +54,8 @@
 
 </div>
 
-<script src="assets/js/jquery.min.js"></script>
+<script src="{{ url(mix('backend/assets/js/jquery.js')) }}"></script>
+<script src="{{ url(mix('backend/assets/js/login.js')) }}"></script>
 
 </body>
 </html>
