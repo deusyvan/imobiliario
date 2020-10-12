@@ -86,15 +86,9 @@
 </div>
 
 
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/tinymce/tinymce.min.js"></script>
-<script src="assets/js/datatables/js/jquery.dataTables.min.js"></script>
-<script src="assets/js/datatables/js/dataTables.responsive.min.js"></script>
-<script src="assets/js/select2/js/select2.min.js"></script>
-<script src="assets/js/select2/js/i18n/pt-BR.js"></script>
-<script src="assets/js/jquery.form.js"></script>
-<script src="assets/js/jquery.mask.js"></script>
-<script src="assets/js/scripts.js"></script>
+<script src="{{ url(mix('backend/assets/js/jquery.js')) }}"></script>
+<script src="{{ url(mix('backend/assets/js/libs.js')) }}"></script>
+<script src="{{ url(mix('backend/assets/js/scripts.js')) }}"></script>
 
 </body>
 </html>

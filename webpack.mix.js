@@ -31,6 +31,24 @@ mix
       'resources/views/admin/assets/js/login.js'
       ], 'public/backend/assets/js/login.js')
 
+   .scripts([
+      'resources/views/admin/assets/js/tinymce/tinymce.min.js',
+      'resources/views/admin/assets/js/datatables/js/jquery.datatables.min.js',
+      'resources/views/admin/assets/js/datatables/js/dataTables.responsive.min.js',
+      'resources/views/admin/assets/js/select2/js/select2.min.js',
+      'resources/views/admin/assets/js/select2/js/i18n/pt-BR.js',
+      'resources/views/admin/assets/js/jquery.form.js',
+      'resources/views/admin/assets/js/jquery.mask.js',
+      ], 'public/backend/assets/js/libs.js')
+
+   .scripts([
+      'resources/views/admin/assets/js/scripts.js'
+      ], 'public/backend/assets/js/scripts.js')
+
+   .copyDirectory('resources/views/admin/assets/js/datatables','public/backend/assets/js/datatables')
+   .copyDirectory('resources/views/admin/assets/js/select2','public/backend/assets/js/select2')
+   .copyDirectory('resources/views/admin/assets/js/tinymce','public/backend/assets/js/tinymce')
+
    .copyDirectory('resources/views/admin/assets/css/fonts','public/backend/assets/css/fonts')
 
    .copyDirectory('resources/views/admin/assets/images','public/backend/assets/images')
