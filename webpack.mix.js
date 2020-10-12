@@ -17,6 +17,12 @@ mix
    .sass('resources/views/admin/assets/scss/login.scss', 'public/backend/assets/css/login.css')   
    .sass('resources/views/admin/assets/scss/style.scss', 'public/backend/assets/css/style.css')
 
+   .styles([
+      'resources/views/admin/assets/js/datatables/css/jquery.dataTables.min.css',
+      'resources/views/admin/assets/js/datatables/css/responsive.dataTables.min.css',
+      'resources/views/admin/assets/js/select2/css/select2.min.css',
+   ],'public/backend/assets/css/libs.css')
+
    .scripts([
       'resources/views/admin/assets/js/jquery.min.js'
       ], 'public/backend/assets/js/jquery.js')
