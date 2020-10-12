@@ -72,7 +72,7 @@
                 <div class="realty_list">
                     <div class="realty_list_item mt-1 mb-1">
                         <div class="realty_list_item_actions_stats">
-                            <img src="assets/images/realty.jpeg" alt="">
+                        <img src="{{ url(asset('backend/assets/images/realty.jpeg')) }}" alt="">
                             <ul>
                                 <li>Venda: R$ 1.000,00</li>
                                 <li>Aluguel: R$ 1.000,00</li>
