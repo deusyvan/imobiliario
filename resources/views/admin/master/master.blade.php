@@ -82,22 +82,7 @@
         </div>
 
         <div class="dash_content_box">
-            <?php
-            $getApp = filter_input(INPUT_GET, "app", FILTER_SANITIZE_STRIPPED);
-            if (!$getApp) {
-                require __DIR__ . "/dashboard/index.php";
-            } elseif (file_exists(__DIR__ . "/{$getApp}.php")) {
-                require __DIR__ . "/{$getApp}.php";
-            } else {
-                echo "
-                    <div class='not_found'>
-                        <p class='not_found_icon icon-link-broken icon-notext'></p>
-                        <h4>Oops, não foi encontrado!</h4>
-                        <p>Você tentou acessar uma APP ou Widget que não existe ou não está disponível. Favor use o menu para navegar no sistema</p>
-                    </div>
-                ";
-            }
-            ?>
+            @yield('content')
         </div>
     </section>
 </div>
