@@ -23,7 +23,8 @@
                 <h1>Login</h1>
             </header>
 
-            <form name="login" action="" method="post" autocomplete="off">
+        <form name="login" action="{{ route('admin.login.do') }}" method="post" autocomplete="off">
+            @csrf
                 <label>
                     <span class="field icon-envelope">E-mail:</span>
                     <input type="email" name="email" placeholder="Informe seu e-mail" required/>
