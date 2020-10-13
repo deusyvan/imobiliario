@@ -1,4 +1,5 @@
 $(function(){
+    $.ajaxSetup();
     $('form[name="login"]').submit(function(event){
         event.preventDefault();
 
