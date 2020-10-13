@@ -34,7 +34,7 @@
 
                 <label>
                     <span class="field icon-unlock-alt">Senha:</span>
-                    <input type="password" name="password_check" placeholder="Informe sua senha" required/>
+                    <input type="password" name="password_check" placeholder="Informe sua senha"/>
                 </label>
 
                 <button class="gradient gradient-orange radius icon-sign-in">Entrar</button>

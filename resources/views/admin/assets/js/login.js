@@ -1,5 +1,10 @@
 $(function(){
-    $.ajaxSetup();
+    //Carregando o token da página no ajax
+    $.ajaxSetup({
+        headers:{
+          'x-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+        }
+    });
     $('form[name="login"]').submit(function(event){
         event.preventDefault();
 
@@ -11,6 +16,9 @@ $(function(){
         //Disparando um post
         $.post(action,{email: email, password: password}, function(response){
             console.log(response);
+            if(response.message){
+                alert('Mensagem de erro: '+ response.message);
+            }
         }, 'json');
     });
 });
