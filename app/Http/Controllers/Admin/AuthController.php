@@ -21,7 +21,7 @@ class AuthController extends Controller
     {
         //Tratando somente email e password
         if(in_array('',$request->only('email','password'))){
-            $json['message'] = $this->message->error('Ooops, informe todos os dados para efetuar o login')->render();
+            $json['message'] = $this->message->success('Ooops, informe todos os dados para efetuar o login')->render();
             //retornando um json em response
             return response()->json($json);
         }
