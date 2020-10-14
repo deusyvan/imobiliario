@@ -25,6 +25,12 @@ class AuthController extends Controller
             //retornando um json em response
             return response()->json($json);
         }
+        //Verificar de fato é um e-mail válido
+        if(!filter_var($request->email, FILTER_VALIDATE_EMAIL)){
+            $json['message'] = $this->message->success('Ooops, informe um e-mail válido')->render();
+            //retornando um json em response
+            return response()->json($json); 
+        }
         var_dump($request->all());
     }
 }
