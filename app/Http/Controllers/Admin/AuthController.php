@@ -42,7 +42,8 @@ class AuthController extends Controller
             $json['message'] = $this->message->success('Ooops, usuário e senha não conferem')->render();
             return response()->json($json);
         }
-        
-        var_dump($request->all());
+
+        $json['redirect'] = route('admin.home');
+        return response()->json($json);
     }
 }
