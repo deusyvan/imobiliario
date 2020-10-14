@@ -3,16 +3,13 @@
 namespace Laradev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Laradev\Http\Controllers\Controller;
-use Laradev\User;
 
 class AuthController extends Controller
 {
     public function showLoginForm()
     {
-        $user = User::where('id',1)->first();
-        $user->password = bcrypt('teste');
-        $user->save();
         return view('admin.index');
     }
 
@@ -35,6 +32,17 @@ class AuthController extends Controller
             //retornando um json em response
             return response()->json($json); 
         }
+
+        $credentials = [
+            'email'=> $request->email,
+            'password'=> $request->password
+        ];
+
+        if(!Auth::attempt($credentials)){
+            $json['message'] = $this->message->success('Ooops, usuário e senha não conferem')->render();
+            return response()->json($json);
+        }
+        
         var_dump($request->all());
     }
 }
