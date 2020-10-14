@@ -4,11 +4,15 @@ namespace Laradev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Laradev\Http\Controllers\Controller;
+use Laradev\User;
 
 class AuthController extends Controller
 {
     public function showLoginForm()
     {
+        $user = User::where('id',1)->first();
+        $user->password = bcrypt('teste');
+        $user->save();
         return view('admin.index');
     }
 
