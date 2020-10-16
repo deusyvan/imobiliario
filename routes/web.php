@@ -18,7 +18,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'],fun
     Route::post('login', 'AuthController@login')->name('login.do');
 
     /** Rotas protegidas */
-    Route::get('home', 'AuthController@home')->name('home');
+    Route::group(['middleware' => ['auth']], function () {
+        /** Dashboard Home */
+        Route::get('home', 'AuthController@home')->name('home');
+    });
 
     /** Logout */
     Route::get('logout', 'AuthController@logout')->name('logout');
