@@ -14,3 +14,6 @@ npm install
 - Aplicação fica em standby pois toda alteração sendo feito já é levada para public
 npm run dev -watch 
 npm run watch 
+
+- Autoload para o composer fazer o laravel reconhecer nosso novo helpers
+composer dump-autoload
