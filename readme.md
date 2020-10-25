@@ -17,3 +17,7 @@ npm run watch
 
 - Autoload para o composer fazer o laravel reconhecer nosso novo helpers
 composer dump-autoload
+
+- Gerando controller:
+php artisan make:controller Admin\UserController --resource
+
