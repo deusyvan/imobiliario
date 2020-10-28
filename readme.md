@@ -21,3 +21,5 @@ composer dump-autoload
 - Gerando controller:
 php artisan make:controller Admin\UserController --resource
 
+- Gerando o Request
+php artisan make:request Admin\User
