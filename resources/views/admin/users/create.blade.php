@@ -276,7 +276,7 @@
                                 <label class="label">
                                     <span class="legend">Tipo de Comunhão:</span>
                                     <select name="type_of_communion" class="select2">
-                                        <option value="Comunhão Universal de Ben">Comunhão Universal de Bens</option>
+                                        <option value="Comunhão Universal de Bens">Comunhão Universal de Bens</option>
                                         <option value="Comunhão Parcial de Bens">Comunhão Parcial de Bens</option>
                                         <option value="Separação Total de Bens">Separação Total de Bens</option>
                                         <option value="Participação Final de Aquestos">Participação Final de Aquestos
