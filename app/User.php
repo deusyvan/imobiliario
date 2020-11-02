@@ -135,7 +135,16 @@ class User extends Authenticatable
     {
         $this->attributes['spouse_income'] = floatval($this->convertStringToDouble($value));
     }
+    
+    public function setAdminAttribute($value)
+    {
+        $this->attributes['admin'] = ($value === true || $value === 'on' ? 1 : 0);
+    }
 
+    public function setClientAttribute($value)
+    {
+        $this->attributes['client'] = ($value === true || $value === 'on' ? 1 : 0);
+    }
     
     private function convertStringToDouble(?string $param)
     {

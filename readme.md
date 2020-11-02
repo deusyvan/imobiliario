@@ -23,3 +23,11 @@ php artisan make:controller Admin\UserController --resource
 
 - Gerando o Request
 php artisan make:request Admin\User
+
+Criados:
+- Rotas
+- Visões
+- Controladores
+- Modelos
+- Form Request
+- Migrations
