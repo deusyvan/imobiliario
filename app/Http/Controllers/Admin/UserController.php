@@ -48,10 +48,10 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $user = new User();
-        //Vamos passar pela camada de negócio (Modelo)
-        $user->fill($request->all());
-        var_dump($user->getAttributes() ,$request->all());
+        //Persiste os dados no banco de dados
+        $userCreate = User::create($request->all());
+
+        var_dump($userCreate);
     }
 
     /**
