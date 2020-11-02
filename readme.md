@@ -24,10 +24,12 @@ php artisan make:controller Admin\UserController --resource
 - Gerando o Request
 php artisan make:request Admin\User
 
+- Configurar messages com barra: Aula: Tratando requisição de Login(11:00)
+
 Criados:
 - Rotas
 - Visões
 - Controladores
 - Modelos
 - Form Request
-- Migrations
+- Migrations : php artisan make:migration alter_users_table --table=users 

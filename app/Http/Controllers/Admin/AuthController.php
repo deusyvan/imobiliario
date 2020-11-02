@@ -5,11 +5,15 @@ namespace Laradev\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laradev\Http\Controllers\Controller;
+use Laradev\User;
 
 class AuthController extends Controller
 {
     public function showLoginForm()
     {
+        if(Auth::check() === true){
+          return redirect()->route('admin.home');  
+        }
         return view('admin.index');
     }
 
@@ -22,7 +26,7 @@ class AuthController extends Controller
     {
         //Tratando somente email e password
         if(in_array('',$request->only('email','password'))){
-            $json['message'] = $this->message->success('Ooops, informe todos os dados para efetuar o login')->render();
+            $json['message'] = $this->message->error('Ooops, informe todos os dados para efetuar o login')->render();
             //retornando um json em response
             return response()->json($json);
         }
@@ -39,9 +43,11 @@ class AuthController extends Controller
         ];
 
         if(!Auth::attempt($credentials)){
-            $json['message'] = $this->message->success('Ooops, usuário e senha não conferem')->render();
+            $json['message'] = $this->message->error('Ooops, usuário e senha não conferem')->render();
             return response()->json($json);
         }
+
+        $this->authenticated($request->getClientIp());
 
         $json['redirect'] = route('admin.home');
         return response()->json($json);
@@ -51,5 +57,14 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect()->route('admin.login');
+    }
+
+    private function authenticated(string $ip)
+    {
+        $user = User::where('id', Auth::user()->id);
+        $user->update([
+            'last_login_at' => date('Y-m-d H:i:s'),
+            'last_login_ip' => $ip
+        ]);
     }
 }

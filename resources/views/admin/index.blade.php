@@ -26,19 +26,18 @@
             </header>
 
         <form name="login" action="{{ route('admin.login.do') }}" method="post" autocomplete="off">
-            
-                <label>
-                    <span class="field icon-envelope">E-mail:</span>
-                    <input type="email" name="email" placeholder="Informe seu e-mail" value="deusyvan@gmail.com" required/>
-                </label>
+            <label>
+                <span class="field icon-envelope">E-mail:</span>
+                <input type="email" name="email" placeholder="Informe seu e-mail" value="deusyvan@gmail.com" required/>
+            </label>
 
-                <label>
-                    <span class="field icon-unlock-alt">Senha:</span>
-                    <input type="password" name="password_check" placeholder="Informe sua senha"/>
-                </label>
+            <label>
+                <span class="field icon-unlock-alt">Senha:</span>
+                <input type="password" name="password_check" placeholder="Informe sua senha"/>
+            </label>
 
-                <button class="gradient gradient-orange radius icon-sign-in">Entrar</button>
-            </form>
+            <button class="gradient gradient-orange radius icon-sign-in">Entrar</button>
+        </form>
 
             <footer>
                 <p>Desenvolvido por <a href="https://www.upinside.com.br">www.<b>upinside</b>.com.br</a></p>

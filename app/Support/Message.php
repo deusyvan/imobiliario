@@ -30,6 +30,11 @@ class Message
         return $this;
     }
 
+    //Aula: Tratando requisição de Login:
+    //info
+
+    //warning
+
     public function render()
     {
        return "<div class='message {$this->getType()}'>{$this->getText()}</div>"; 
