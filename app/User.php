@@ -91,12 +91,22 @@ class User extends Authenticatable
         $this->attributes['document'] = $this->clearField($value);
     }
 
+    public function getDocumentAttribute($value)
+    {
+        return substr($value,0,3).'.'.substr($value,3,3).'.'.substr($value,6,3).'-'.substr($value,9,2);
+    }
+
     public function setDateOfBirthAttribute($value)
     {
         $this->attributes['date_of_birth'] = $this->convertStringToDate($value);
     }
 
     public function setIncomeAttribute($value)
+    {
+        $this->attributes['income'] = floatval($this->convertStringToDouble($value));
+    }
+
+    public function getIncomeAttribute($value)
     {
         $this->attributes['income'] = floatval($this->convertStringToDouble($value));
     }

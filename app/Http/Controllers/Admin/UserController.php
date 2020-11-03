@@ -77,9 +77,10 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::where('id',$id)->first();
-        return view('admin.users.edit',[
-            'user' => $user
-            ]);
+        var_dump($user->document,$user->getAttributes());
+        // return view('admin.users.edit',[
+        //     'user' => $user
+        //     ]);
     }
 
     /**
@@ -89,9 +90,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $user = User::where('id',$id)->first();
+
+        $user->setLessorAttribute($request->lessor);
+        $user->setLesseeAttribute($request->lessee);
+
+        var_dump($request);
     }
 
     /**
