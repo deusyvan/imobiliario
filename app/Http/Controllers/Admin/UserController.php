@@ -77,10 +77,10 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::where('id',$id)->first();
-        var_dump($user->document,$user->date_of_birth,$user->income,$user->spouse_document,$user->spouse_date_of_birth,$user->spouse_income,$user->getAttributes());
-        // return view('admin.users.edit',[
-        //     'user' => $user
-        //     ]);
+        //var_dump($user->document,$user->date_of_birth,$user->income,$user->spouse_document,$user->spouse_date_of_birth,$user->spouse_income,$user->getAttributes());
+        return view('admin.users.edit',[
+            'user' => $user
+            ]);
     }
 
     /**
@@ -97,7 +97,11 @@ class UserController extends Controller
         $user->setLessorAttribute($request->lessor);
         $user->setLesseeAttribute($request->lessee);
 
-        var_dump($request);
+        $user->fill($request->all());
+
+        $user->save();
+
+        var_dump($user);
     }
 
     /**
