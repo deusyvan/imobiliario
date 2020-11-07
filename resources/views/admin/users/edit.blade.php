@@ -515,7 +515,11 @@
 @section('js')
 <script>
     $(function(){
-        alert($('select[name="civil_status"]').val());
+        if ($('select[name="civil_status"]').val() === 'married' || $('select[name="civil_status"]').val() === 'separated') {
+            $('.content_spouse input').prop('disabled', false);
+        } else {
+            $('.content_spouse input').prop('disabled', true);
+        };
     });
 </script>
 @endsection
