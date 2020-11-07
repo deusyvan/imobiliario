@@ -515,7 +515,7 @@
 @section('js')
 <script>
     $(function(){
-        alert('teste');
+        alert($('select[name="civil_status"]').val());
     });
 </script>
 @endsection
