@@ -33,3 +33,7 @@ Criados:
 - Modelos
 - Form Request
 - Migrations : php artisan make:migration alter_users_table --table=users 
+
+- Atualizando o npm 
+npm run dev
+

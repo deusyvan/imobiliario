@@ -2,7 +2,7 @@ $(function(){
     //Carregando o token da página no ajax
     $.ajaxSetup({
         headers:{
-          'x-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
         }
     });
     $('form[name="login"]').submit(function(event){

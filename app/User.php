@@ -6,6 +6,8 @@ use DateTime;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Storage;
+use Laradev\Support\Cropper;
 
 class User extends Authenticatable
 {
@@ -74,6 +76,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Para mapear o cover para uma url em storage
+    public function getUrlCoverAttribute()
+    {
+        if(!empty($this->cover)){
+            //Cropper vai redimensionar a imagem com um thumbnail
+            return Storage::url(Cropper::thumb($this->cover,500,500));
+        }
+
+        return ''; //Para o caso de cover for vazio
+    }
 
     // Tratamento de dados para chegar no Bd
     public function setLessorAttribute($value)

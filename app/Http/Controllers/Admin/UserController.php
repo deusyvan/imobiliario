@@ -2,9 +2,12 @@
 
 namespace Laradev\Http\Controllers\Admin;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Laradev\Http\Controllers\Controller;
 use Laradev\Http\Requests\Admin\User as UserRequest;
+use Laradev\Support\Cropper;
 use Laradev\User;
 
 class UserController extends Controller
@@ -29,7 +32,11 @@ class UserController extends Controller
      */
     public function team()
     {
-        return view('admin.users.team');
+        //Busca apenas os usuários que são administradores
+        $users = User::where('admin',1)->get();
+        return view('admin.users.team',[
+            'users' => $users
+        ]);
     }
 
 
@@ -54,7 +61,15 @@ class UserController extends Controller
         //Persiste os dados no banco de dados
         $userCreate = User::create($request->all());
 
-        var_dump($userCreate);
+        if(!empty($request->file('cover'))){
+            //Aqui: Storage define pra onde é jogado a imagem e em cover onde é salvo o nome da imagem  
+            $userCreate->cover = $request->file('cover')->store('user');
+            $userCreate->save();
+        }
+
+        return redirect()->route('admin.users.edit',[
+            'users' => $userCreate->id
+        ])->with(['color' => 'green', 'message' => 'Cliente cadastrado com sucesso!']);
     }
 
     /**
@@ -97,11 +112,29 @@ class UserController extends Controller
         $user->setLessorAttribute($request->lessor);
         $user->setLesseeAttribute($request->lessee);
 
+        if(!empty($request->file('cover'))){
+            //Prevenir caso não salvar, elimine o upload, elimando o que tinha no banco de dados e no diretorio
+            Storage::delete($user->cover);
+            //Limpando o diretorio cache onde é carregado os thumbnails
+            Cropper::flush($user->cover);
+            $user->cover = '';//Tornando o dado vazio
+        }
+        //Com o fill alimenta os dados com os do formulário
         $user->fill($request->all());
 
-        $user->save();
+        if(!empty($request->file('cover'))){
+            //Aqui: Storage define pra onde é jogado a imagem e em cover onde é salvo o nome da imagem  
+            $user->cover = $request->file('cover')->store('user');
+        }
 
-        var_dump($user);
+        if(!$user->save()){
+            //Se não conseguir salvar retorna com a msg de erro e os dados do form
+            return redirect()->back()->withInput()->withErrors($this);
+        }
+
+        return redirect()->route('admin.users.edit',[
+            'users' => $user->id
+        ])->with(['color' => 'green', 'message' => 'Cliente atualizado com sucesso!']);
     }
 
     /**
