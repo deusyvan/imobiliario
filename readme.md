@@ -39,7 +39,7 @@ npm run dev
 
 - Replicar ações para criação de recurso "Company":
 
- - Alimentar item no menu: Parametrizar menu:
+ - Alimentar item no menu: Parametrizar menu na view: master.blade.php 
 
  - Criar Rotas: Parametrizar rotas: [Route::resource('companies', 'CompanyController');] e testa as rotas para verificar se não existe algum erro: [php artisan route:list]
 
