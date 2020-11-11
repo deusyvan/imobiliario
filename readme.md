@@ -41,7 +41,7 @@ npm run dev
 
  - Alimentar item no menu: Parametrizar menu:
 
- - Criar Rotas: Parametrizar rotas: 
+ - Criar Rotas: Parametrizar rotas: [Route::resource('companies', 'CompanyController');] e testa as rotas para verificar se não existe algum erro: [php artisan route:list]
 
  - Criar Controlador [ php artisan make:controller Admin\CompanyController --resource] resource para os métodos e recursos do controlador
 

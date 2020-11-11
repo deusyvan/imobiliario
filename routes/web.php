@@ -11,6 +11,7 @@
 |
 */
 
+use Laradev\Http\Controllers\Admin\CompanyController;
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'],function(){
     /** Formulário de Login */
@@ -22,10 +23,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'],fun
         /** Dashboard Home */
         Route::get('home', 'AuthController@home')->name('home');
 
+        /** Usuários */
         Route::get('users/team', 'UserController@team')->name('users.team');
         Route::resource('users', 'UserController');
 
-        
+        /** Empresas */
+        Route::resource('companies', 'CompanyController');
     });
 
     /** Logout */
