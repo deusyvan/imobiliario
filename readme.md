@@ -37,3 +37,20 @@ Criados:
 - Atualizando o npm 
 npm run dev
 
+- Replicar ações para criação de recurso "Company":
+
+ - Alimentar item no menu: Parametrizar menu:
+
+ - Criar Rotas: Parametrizar rotas: 
+
+ - Criar Controlador [ php artisan make:controller Admin\CompanyController --resource] resource para os métodos e recursos do controlador
+
+ - Criar Modelo: [ php artisan make:model Company -m ] no caso de -r =resources vai para o diretorio Http/Controllers deve-se copiar para a pasta correta(Admin e mudar o namespace) ou já informando o caminho correto, sem o resources vai para a pasta "app", usar -m para já criar o migrate de banco de dados.  
+
+ - Criar Form Request
+ - Fazer as validações
+ - Traduzir parâmetros no arquivo de traduções (global)
+ - Persistência no formulário: 
+    criação(CSRF) e 
+    edição (MÉTODO PUT, input "hidden" do id)
+

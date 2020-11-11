@@ -24,6 +24,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'],fun
 
         Route::get('users/team', 'UserController@team')->name('users.team');
         Route::resource('users', 'UserController');
+
+        
     });
 
     /** Logout */
