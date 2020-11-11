@@ -76,7 +76,7 @@
 
                             <label class="label">
                                 <span class="legend">*CPF:</span>
-                                <input type="tel" class="mask-doc" name="document" placeholder="CPF do Cliente"
+                                <input type="text" class="mask-doc" name="document" placeholder="CPF do Cliente"
                                        value="{{ old('document') }}"/>
                             </label>
                         </div>
@@ -227,14 +227,14 @@
                                 <div class="label_g2">
                                     <label class="label">
                                         <span class="legend">Residencial:</span>
-                                        <input type="tel" name="telephone" class="mask-phone"
+                                        <input type="text" name="telephone" class="mask-phone"
                                                placeholder="Número do Telefonce com DDD" value="{{ old('telephone') }}" />
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">*Celular:</span>
-                                        <input type="tel" name="cell" class="mask-cell"
-                                               placeholder="Número do Telefone com DDD" value="{{ old('cell') }}" required />
+                                        <input type="text" name="cell" class="mask-cell"
+                                               placeholder="Número do Telefone com DDD" value="{{ old('cell') }}" />
                                     </label>
                                 </div>
                             </div>
