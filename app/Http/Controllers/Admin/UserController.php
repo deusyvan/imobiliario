@@ -2,7 +2,6 @@
 
 namespace Laradev\Http\Controllers\Admin;
 
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Laradev\Http\Controllers\Controller;
@@ -92,7 +91,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::where('id',$id)->first();
-        //var_dump($user->document,$user->date_of_birth,$user->income,$user->spouse_document,$user->spouse_date_of_birth,$user->spouse_income,$user->getAttributes());
+        //var_dump($user->spouse_document,$user->getAttributes());die;
         return view('admin.users.edit',[
             'user' => $user
             ]);
@@ -108,6 +107,7 @@ class UserController extends Controller
     public function update(UserRequest $request, $id)
     {
         $user = User::where('id',$id)->first();
+        //var_dump($user->spouse_document,$user->getAttributes());die;
 
         $user->setLessorAttribute($request->lessor);
         $user->setLesseeAttribute($request->lessee);
@@ -121,6 +121,7 @@ class UserController extends Controller
         }
         //Com o fill alimenta os dados com os do formulário
         $user->fill($request->all());
+        //var_dump($user->spouse_document,$user->getAttributes());die;
 
         if(!empty($request->file('cover'))){
             //Aqui: Storage define pra onde é jogado a imagem e em cover onde é salvo o nome da imagem  

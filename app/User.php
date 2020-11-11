@@ -149,14 +149,14 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
-    public function seSpouseDocumentAttribute($value)
+    public function setSpouseDocumentAttribute($value)
     {
         $this->attributes['spouse_document'] = $this->clearField($value);
     }
 
     public function getSpouseDocumentAttribute($value)
     {
-        return substr($value,0,3).'.'.substr($value,3,3).'.'.substr($value,6,3).'-'.substr($value,9,2);
+        return substr($value, 0, 3) . '.' . substr($value, 3, 3) . '.' . substr($value, 6, 3) . '-' . substr($value, 9, 2);
     }
 
     public function setSpouseDateOfBirthAttribute($value)
