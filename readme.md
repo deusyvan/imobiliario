@@ -53,14 +53,9 @@ npm run dev
     criação(CSRF) e 
     edição (MÉTODO PUT, input "hidden" do id)
 
+- 
 
 
-
-
-
-
-
-00:08:44
 
 
 ALTER TABLE military_organizations
