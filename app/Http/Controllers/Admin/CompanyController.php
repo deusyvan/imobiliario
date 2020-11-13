@@ -3,6 +3,7 @@
 namespace Laradev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Laradev\Company;
 use Laradev\Http\Controllers\Controller;
 
 class CompanyController extends Controller
@@ -35,7 +36,10 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $company = new Company();
+        $company->fill($request->all());
+
+        var_dump($company->getAttributes());
     }
 
     /**
