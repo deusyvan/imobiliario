@@ -5,6 +5,7 @@ namespace Laradev\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Laradev\Company;
 use Laradev\Http\Controllers\Controller;
+use Laradev\Http\Requests\Admin\Company as CompanyRequest;
 
 class CompanyController extends Controller
 {
@@ -34,7 +35,7 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyRequest $request)
     {
         $company = new Company();
         $company->fill($request->all());
