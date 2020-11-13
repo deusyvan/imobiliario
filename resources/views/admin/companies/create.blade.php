@@ -1,8 +1,8 @@
+@extends('admin.master.master')
+@section('content')
 <section class="dash_content_app">
-
     <header class="dash_content_app_header">
         <h2 class="icon-user-plus">Nova Empresa</h2>
-
         <div class="dash_content_app_header_actions">
             <nav class="dash_content_app_breadcrumb">
                 <ul>
@@ -114,3 +114,4 @@
         </div>
     </div>
 </section>
+@endsection
