@@ -64,7 +64,10 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $company = Company::where('id', $id)->first();
+        return view('admin.companies.edit', [
+            'company' => $company
+        ]);
     }
 
     /**
@@ -74,9 +77,11 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyRequest $request, $id)
     {
-        //
+        $company = Company::where('id',$id)->first();
+        $company->fill($request->all());
+        var_dump($company->getAttributes());
     }
 
     /**
