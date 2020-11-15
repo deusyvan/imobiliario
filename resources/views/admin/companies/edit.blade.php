@@ -39,7 +39,7 @@
                     <select name="user" class="select2">
                         <option value="" selected>Selecione um responsável legal</option>
                         @foreach ($users as $user)
-                        <option value="{{ $user->id }}" {{ ($user->id === $company->user ? 'selected' : '') }}>{{ $user->name }} (({{$user->document}})) </option>
+                        <option value="{{ $user->id }}" {{ ($user->id === $company->user ? 'selected' : '') }}>{{ $user->name }} ({{$user->document}}) </option>
                         @endforeach
                     </select>
                     <p style="margin-top: 4px;">

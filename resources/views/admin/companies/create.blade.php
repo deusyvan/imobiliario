@@ -31,7 +31,12 @@
                     <select name="user" class="select2">
                         <option value="" selected>Selecione um responsável legal</option>
                         @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }} (({{$user->document}})) </option>
+                            @if (!empty($selected))
+                            <option value="{{ $user->id }}" {{ ($user->id === $selected->id ? 'selected' : '') }}>{{ $user->name }} ({{$user->document}}) </option>
+                            @else
+                                <option value="{{ $user->id }}" >{{ $user->name }} ({{$user->document}}) </option>
+                            @endif
+                                
                         @endforeach
                     </select>
                     <p style="margin-top: 4px;">
