@@ -38,11 +38,13 @@
                 <tbody>
                     @foreach ($companies as $company)
                         <tr>
-                        <td><a href="" class="text-orange">{{ $company->social_name }}</a></td>
+                        <td><a href="{{ route('admin.companies.edit', ['company' => $company->id]) }}" 
+                            class="text-orange">{{ $company->social_name }}</a></td>
                             <td>{{ $company->alias_name }}</td>
                             <td>{{ $company->document_company }}</td>
                             <td>{{ $company->document_company_secondary }}</td>
-                            <td><a href="" class="text-orange">Robson V. Leite</a></td>
+                            <td><a href="{{ route('admin.users.edit', ['user' => $company->user()->first()->id]) }}" 
+                                class="text-orange">{{ $company->user()->first()->name }}</a></td>
                         </tr>
                     @endforeach
                 </tbody>

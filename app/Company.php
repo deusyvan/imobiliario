@@ -21,6 +21,11 @@ class Company extends Model
         'city',
     ];
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user', 'id');
+    }
+
     public function setDocumentCompanyAttribute($value)
     {
         $this->attributes['document_company'] = $this->clearField($value);

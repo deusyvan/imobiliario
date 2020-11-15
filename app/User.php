@@ -77,6 +77,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**Criando os relacionamentos */
+    public function companies()
+    {
+        return $this->hasMany(Company::class, 'id');
+    }
+
     //Para mapear o cover para uma url em storage
     public function getUrlCoverAttribute()
     {
