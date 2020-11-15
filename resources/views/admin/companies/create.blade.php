@@ -29,8 +29,10 @@
                 <label class="label">
                     <span class="legend">Responsável Legal:</span>
                     <select name="user" class="select2">
-                        <option value="1" selected>Deusyvan Web</option>
-                        <option value="" selected>Nome (document)</option>
+                        <option value="" selected>Selecione um responsável legal</option>
+                        @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }} (({{$user->document}})) </option>
+                        @endforeach
                     </select>
                     <p style="margin-top: 4px;">
                         <a href="" class="text-orange icon-link" style="font-size: .8em;" target="_blank">Acessar

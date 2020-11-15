@@ -30,7 +30,10 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('admin.companies.create');
+        $users = User::orderBy('name')->get();
+        return view('admin.companies.create',[
+            'users' => $users
+        ]);
     }
 
     /**
