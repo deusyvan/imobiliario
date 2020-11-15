@@ -54,7 +54,7 @@ npm run dev
     edição (MÉTODO PUT, input "hidden" do id)
 
 - Desenvolvendo recursos: Imóvel
-  - Criar Rotas
+  - Criar Rotas (php artisan route:list) - Lista e reconhecimento do controllador e realização de todos os binds dos parametros
   - Criar Modelo (php artisan make:model Property -m)
   - Criar Controlador (php artisan make:controller Admin\PropertyController --resource)
   - Criar Form Request
