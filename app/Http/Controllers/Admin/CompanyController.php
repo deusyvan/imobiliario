@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laradev\Company;
 use Laradev\Http\Controllers\Controller;
 use Laradev\Http\Requests\Admin\Company as CompanyRequest;
+use Laradev\User;
 
 class CompanyController extends Controller
 {
@@ -65,8 +66,11 @@ class CompanyController extends Controller
     public function edit($id)
     {
         $company = Company::where('id', $id)->first();
+        $users = User::orderBy('name')->get();
+
         return view('admin.companies.edit', [
-            'company' => $company
+            'company' => $company,
+            'users' => $users
         ]);
     }
 
