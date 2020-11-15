@@ -24,7 +24,7 @@ php artisan make:controller Admin\UserController --resource
 - Gerando o Request
 php artisan make:request Admin\User
 
-- Configurar messages com barra: Aula: Tratando requisição de Login(11:00)
+- Configurar messages com barra: Aula: Tratando requisição de Login
 
 Criados:
 - Rotas
@@ -53,13 +53,12 @@ npm run dev
     criação(CSRF) e 
     edição (MÉTODO PUT, input "hidden" do id)
 
-- 
+- Desenvolvendo recursos: Imóvel
+  - Criar Rotas
+  - Criar Modelo (php artisan make:model Property -m)
+  - Criar Controlador (php artisan make:controller Admin\PropertyController --resource)
+  - Criar Form Request
+  - Criar Migration (php artisan make:model Property -m)
+  - Popular Banco de dados
 
-
-
-
-ALTER TABLE military_organizations
-  ADD KEY military_organizations_country_foreign(country_id);
-ALTER TABLE military_organizations
-  ADD CONSTRAINT military_organizations_country_foreign FOREIGN KEY (country_id) REFERENCES counties(id) ON DELETE CASCADE
 
