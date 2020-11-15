@@ -60,5 +60,6 @@ npm run dev
   - Criar Form Request
   - Criar Migration (php artisan make:model Property -m)
   - Popular Banco de dados
+  - Colocar menu(imóveis) pra funcionar
 
 
