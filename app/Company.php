@@ -20,4 +20,18 @@ class Company extends Model
         'state',
         'city',
     ];
+
+    public function setDocumentCompanyAttribute($value)
+    {
+        $this->attributes['document_company'] = $this->clearField($value);
+    }
+
+    private function clearField(?string $param)
+    {
+        if(empty($param)){
+            return '';
+        }
+
+        return str_replace(['.','-','/','(',')',' '], '', $param);
+    }
 }

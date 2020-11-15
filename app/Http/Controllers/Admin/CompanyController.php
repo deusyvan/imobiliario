@@ -16,7 +16,10 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('admin.companies.index');
+        $companies = Company::all();
+        return view('admin.companies.index',[
+            'companies' => $companies,
+        ]);
     }
 
     /**
@@ -37,10 +40,9 @@ class CompanyController extends Controller
      */
     public function store(CompanyRequest $request)
     {
-        $company = new Company();
-        $company->fill($request->all());
+        $companyCreate = Company::create($request->all());
 
-        var_dump($company->getAttributes());
+        var_dump($companyCreate);
     }
 
     /**
