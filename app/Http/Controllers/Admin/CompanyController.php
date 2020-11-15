@@ -81,7 +81,11 @@ class CompanyController extends Controller
     {
         $company = Company::where('id',$id)->first();
         $company->fill($request->all());
-        var_dump($company->getAttributes());
+        $company->save();
+
+        return redirect()->route('admin.companies.edit',[
+            'company' => $company->id
+        ])->with(['color' => 'green', 'message' => 'Empresa atualizada com sucesso!']);
     }
 
     /**
