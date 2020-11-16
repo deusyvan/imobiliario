@@ -39,7 +39,7 @@ class PropertyController extends Controller
         $property = new Property();
         $property->fill($request->all());
 
-        var_dump($property);
+        var_dump($property->getAttributes());
     }
 
     /**

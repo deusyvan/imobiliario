@@ -59,6 +59,7 @@ npm run dev
   - Criar Controlador (php artisan make:controller Admin\PropertyController --resource)
   - Criar Form Request
   - Criar Migration (php artisan make:model Property -m)
+    *Parametrizar o form com o fillable e realizar a migração: php artisan migrate
   - Popular Banco de dados
   - Colocar menu(imóveis) pra funcionar
   - Parametrizar as visões

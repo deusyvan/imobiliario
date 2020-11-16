@@ -83,6 +83,7 @@
                         <label class="label">
                             <span class="legend">Proprietário:</span>
                             <select name="user" class="select2">
+                                <option value="1">Deusyvan Faca</option>
                                 <option value="">Nome (documento)</option>
                             </select>
                         </label>
