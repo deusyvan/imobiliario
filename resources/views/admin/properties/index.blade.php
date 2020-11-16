@@ -14,13 +14,12 @@
                     <li><a href="{{ route('admin.properties.index') }}">Imóveis</a></li>
                 </ul>
             </nav>
-
             <a href="{{ route('admin.properties.create') }}" class="btn btn-orange icon-home ml-1">Criar Imóvel</a>
             <button class="btn btn-green icon-search icon-notext ml-1 search_open"></button>
         </div>
     </header>
 
-    @include('admin.properties.filter'); ?>
+    @include('admin.properties.filter')
 
     <div class="dash_content_app_box">
         <div class="dash_content_app_box_stage">
