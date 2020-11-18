@@ -57,7 +57,7 @@ npm run dev
   - Criar Rotas (php artisan route:list) - Lista e reconhecimento do controllador e realização de todos os binds dos parametros
   - Criar Modelo (php artisan make:model Property -m)
   - Criar Controlador (php artisan make:controller Admin\PropertyController --resource)
-  - Criar Form Request
+  - Criar Form Request (php artisan make:request Admin\Property)
   - Criar Migration (php artisan make:model Property -m)
     *Parametrizar o form com o fillable e realizar a migração: php artisan migrate
   - Popular Banco de dados
