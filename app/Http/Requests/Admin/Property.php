@@ -25,7 +25,7 @@ class Property extends FormRequest
     public function rules()
     {
         return [
-            'user' => 'required',
+            'user' => 'required|min:50',
             'category' => 'required',
             'type' => 'required',
             'sale_price' => 'required_if:sale,on',

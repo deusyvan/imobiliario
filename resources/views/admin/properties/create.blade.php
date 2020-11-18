@@ -40,11 +40,11 @@
                         <div class="label_gc">
                             <span class="legend">Finalidade:</span>
                             <label class="label">
-                                <input type="checkbox" name="sale"><span>Venda</span>
+                                <input type="checkbox" name="sale" {{ (old('sale') == 'on' || old('sale') == true ? 'checked' : '') }} ><span>Venda</span>
                             </label>
 
                             <label class="label">
-                                <input type="checkbox" name="rent"><span>Locação</span>
+                                <input type="checkbox" name="rent" {{ (old('rent') == 'on' || old('rent') == true ? 'checked' : '') }} ><span>Locação</span>
                             </label>
                         </div>
 
@@ -52,9 +52,9 @@
                             <label class="label">
                                 <span class="legend">Categoria:</span>
                                 <select name="category" class="select2">
-                                    <option value="residential_property">Imóvel Residencial</option>
-                                    <option value="commercial_industrial">Comercial/Industrial</option>
-                                    <option value="terrain">Terreno</option>
+                                    <option value="residential_property" {{ (old('category') == 'residential_property' ? 'selected' : '') }} >Imóvel Residencial</option>
+                                    <option value="commercial_industrial" {{ (old('category') == 'commercial_industrial' ? 'selected' : '') }} >Comercial/Industrial</option>
+                                    <option value="terrain" {{ (old('category') == 'terrain' ? 'selected' : '') }} >Terreno</option>
                                 </select>
                             </label>
 
@@ -62,19 +62,19 @@
                                 <span class="legend">Tipo:</span>
                                 <select name="type" class="select2">
                                     <optgroup label="Imóvel Residencial">
-                                        <option value="home">Casa</option>
-                                        <option value="roof">Cobertura</option>
-                                        <option value="apartment">Apartamento</option>
-                                        <option value="studio">Studio</option>
-                                        <option value="kitnet">Kitnet</option>
+                                        <option value="home" {{ (old('type') == 'home' ? 'selected' : '') }} >Casa</option>
+                                        <option value="roof" {{ (old('type') == 'roof' ? 'selected' : '') }} >Cobertura</option>
+                                        <option value="apartment" {{ (old('type') == 'apartment' ? 'selected' : '') }} >Apartamento</option>
+                                        <option value="studio" {{ (old('type') == 'studio' ? 'selected' : '') }} >Studio</option>
+                                        <option value="kitnet" {{ (old('type') == 'kitnet' ? 'selected' : '') }} >Kitnet</option>
                                     </optgroup>
                                     <optgroup label="Comercial/Industrial">
-                                        <option value="commercial_room">Sala Comercial</option>
-                                        <option value="deposit_shed">Depósito/Galpão</option>
-                                        <option value="commercial_point">Ponto Comercial</option>
+                                        <option value="commercial_room" {{ (old('type') == 'commercial_room' ? 'selected' : '') }} >Sala Comercial</option>
+                                        <option value="deposit_shed" {{ (old('type') == 'deposit_shed' ? 'selected' : '') }} >Depósito/Galpão</option>
+                                        <option value="commercial_point" {{ (old('type') == 'commercial_point' ? 'selected' : '') }} >Ponto Comercial</option>
                                     </optgroup>
                                     <optgroup label="Terreno">
-                                        <option value="terrain">Terreno</option>
+                                        <option value="terrain" {{ (old('type') == 'terrain' ? 'selected' : '') }} >Terreno</option>
                                     </optgroup>
                                 </select>
                             </label>
@@ -98,24 +98,24 @@
                                 <div class="label_g2">
                                     <label class="label">
                                         <span class="legend">Valor de Venda:</span>
-                                        <input type="tel" name="sale_price" class="mask-money" value=""/>
+                                        <input type="tel" name="sale_price" class="mask-money" value="{{ old('sale_price') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Valor de Locação:</span>
-                                        <input type="tel" name="rent_price" class="mask-money" value=""/>
+                                        <input type="tel" name="rent_price" class="mask-money" value="{{ old('rent_price') }}"/>
                                     </label>
                                 </div>
 
                                 <div class="label_g2">
                                     <label class="label">
                                         <span class="legend">IPTU:</span>
-                                        <input type="tel" name="tribute" class="mask-money" value=""/>
+                                        <input type="tel" name="tribute" class="mask-money" value="{{ old('tribute') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Condomínio:</span>
-                                        <input type="tel" name="condominium" class="mask-money" value=""/>
+                                        <input type="tel" name="condominium" class="mask-money" value="{{ old('condominium') }}"/>
                                     </label>
                                 </div>
                             </div>
@@ -124,56 +124,56 @@
                         <div class="app_collapse">
                             <div class="app_collapse_header mt-2 collapse">
                                 <h3>Características</h3>
-                                <span class="icon-plus-circle icon-notext"></span>
+                                <span class="icon-plus-circle icon-notext">condominium</span>
                             </div>
 
                             <div class="app_collapse_content d-none">
                                 <label class="label">
                                     <span class="legend">Descrição do Imóvel:</span>
-                                    <textarea name="description" cols="30" rows="10" class="mce"></textarea>
+                                    <textarea name="description" cols="30" rows="10" class="mce">{{ old('description') }}</textarea>
                                 </label>
 
                                 <div class="label_g4">
                                     <label class="label">
                                         <span class="legend">Dormitórios:</span>
-                                        <input type="tel" name="bedrooms" placeholder="Quantidade de Dormitórios" value=""/>
+                                        <input type="tel" name="bedrooms" placeholder="Quantidade de Dormitórios" value="{{ old('bedrooms') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Suítes:</span>
-                                        <input type="tel" name="suites" placeholder="Quantidade de Suítes" value=""/>
+                                        <input type="tel" name="suites" placeholder="Quantidade de Suítes" value="{{ old('suites') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Banheiros:</span>
-                                        <input type="tel" name="bathrooms" placeholder="Quantidade de Banheiros" value=""/>
+                                        <input type="tel" name="bathrooms" placeholder="Quantidade de Banheiros" value="{{ old('bathrooms') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Salas:</span>
-                                        <input type="tel" name="rooms" placeholder="Quantidade de Salas" value=""/>
+                                        <input type="tel" name="rooms" placeholder="Quantidade de Salas" value="{{ old('rooms') }}"/>
                                     </label>
                                 </div>
 
                                 <div class="label_g4">
                                     <label class="label">
                                         <span class="legend">Garagem:</span>
-                                        <input type="tel" name="garage" placeholder="Quantidade de Garagem" value=""/>
+                                        <input type="tel" name="garage" placeholder="Quantidade de Garagem" value="{{ old('garage') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Garagem Coberta:</span>
-                                        <input type="tel" name="garage_covered" placeholder="Quantidade de Garagem Coberta" value=""/>
+                                        <input type="tel" name="garage_covered" placeholder="Quantidade de Garagem Coberta" value="{{ old('garage_covered') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Área Total:</span>
-                                        <input type="tel" name="area_total" placeholder="Quantidade de M&sup2;" value=""/>
+                                        <input type="tel" name="area_total" placeholder="Quantidade de M&sup2;" value="{{ old('area_total') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Área Útil:</span>
-                                        <input type="tel" name="area_util" placeholder="Quantidade de M&sup2;" value=""/>
+                                        <input type="tel" name="area_util" placeholder="Quantidade de M&sup2;" value="{{ old('area_util') }}"/>
                                     </label>
                                 </div>
                             </div>
@@ -189,41 +189,41 @@
                                 <div class="label_g2">
                                     <label class="label">
                                         <span class="legend">CEP:</span>
-                                        <input type="text" name="zipcode" class="zip_code_search" placeholder="Digite o CEP" value=""/>
+                                        <input type="text" name="zipcode" class="zip_code_search" placeholder="Digite o CEP" value="{{ old('zipcode') }}"/>
                                     </label>
                                 </div>
 
                                 <label class="label">
                                     <span class="legend">Endereço:</span>
-                                    <input type="text" name="street" class="street" placeholder="Endereço Completo" value=""/>
+                                    <input type="text" name="street" class="street" placeholder="Endereço Completo" value="{{ old('street') }}/>
                                 </label>
 
                                 <div class="label_g2">
                                     <label class="label">
                                         <span class="legend">Número:</span>
-                                        <input type="text" name="number" placeholder="Número do Endereço" value=""/>
+                                        <input type="text" name="number" placeholder="Número do Endereço" value="{{ old('number') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Complemento:</span>
-                                        <input type="text" name="complement" placeholder="Completo (Opcional)" value=""/>
+                                        <input type="text" name="complement" placeholder="Completo (Opcional)" value="{{ old('complement') }}"/>
                                     </label>
                                 </div>
 
                                 <label class="label">
                                     <span class="legend">Bairro:</span>
-                                    <input type="text" name="neighborhood" class="neighborhood" placeholder="Bairro" value=""/>
+                                    <input type="text" name="neighborhood" class="neighborhood" placeholder="Bairro" value="{{ old('neighborhood') }}"/>
                                 </label>
 
                                 <div class="label_g2">
                                     <label class="label">
                                         <span class="legend">Estado:</span>
-                                        <input type="text" name="state" class="state" placeholder="Estado" value=""/>
+                                        <input type="text" name="state" class="state" placeholder="Estado" value="{{ old('state') }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Cidade:</span>
-                                        <input type="text" name="city" class="city" placeholder="Cidade" value=""/>
+                                        <input type="text" name="city" class="city" placeholder="Cidade" value="{{ old('city') }}"/>
                                     </label>
                                 </div>
                             </div>
