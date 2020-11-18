@@ -83,6 +83,11 @@ class Property extends Model
         }
     }
 
+    public function getRentPriceAttribute($value)
+    {
+        return number_format($value,2,',','.');
+    }
+
     public function setTributeAttribute($value)
     {
         if(empty($value)){
@@ -92,6 +97,11 @@ class Property extends Model
         }
     }
 
+    public function getTributeAttribute($value)
+    {
+        return number_format($value,2,',','.');
+    }
+
     public function setCondominiumAttribute($value)
     {
         if(empty($value)){
@@ -99,6 +109,11 @@ class Property extends Model
         }else{
             $this->attributes['condominium'] = floatval($this->convertStringToDouble($value));
         }
+    }
+
+    public function getCondominiumAttribute($value)
+    {
+        return number_format($value,2,',','.');
     }
 
     public function setAirConditioningAttribute($value)

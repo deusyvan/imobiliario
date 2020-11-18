@@ -64,7 +64,7 @@ class PropertyController extends Controller
     public function edit($id)
     {
         $property = Property::where('id',$id)->first();
-        var_dump($property->sale_price, $property->getAttributes());exit;//Pegando o getAttributes sabemos que não passa por dentro dos access e mutates
+        //var_dump($property->sale_price, $property->getAttributes());exit;//Pegando o getAttributes sabemos que não passa por dentro dos access e mutates
         return view('admin.properties.edit',[
             'property' => $property
         ]);
