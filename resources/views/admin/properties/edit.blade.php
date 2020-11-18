@@ -46,8 +46,9 @@
                 </li>
             </ul>
 
-            <form action="{{ route('admin.properties.store') }}" method="post" class="app_form" enctype="multipart/form-data">
+            <form action="{{ route('admin.properties.update',['property' => $property->id ]) }}" method="post" class="app_form" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <div class="nav_tabs_content">
                     <div id="data">
                         <div class="label_gc">
@@ -176,17 +177,17 @@
 
                                     <label class="label">
                                         <span class="legend">Garagem Coberta:</span>
-                                        <input type="tel" name="garage_covered" placeholder="Quantidade de Garagem Coberta" value="{{ old('garage_covered') ?? $property->covered }}"/>
+                                        <input type="tel" name="garage_covered" placeholder="Quantidade de Garagem Coberta" value="{{ old('garage_covered') ?? $property->garage_covered }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Área Total:</span>
-                                        <input type="tel" name="area_total" placeholder="Quantidade de M&sup2;" value="{{ old('area_total') ?? $property->total }}"/>
+                                        <input type="tel" name="area_total" placeholder="Quantidade de M&sup2;" value="{{ old('area_total') ?? $property->area_total }}"/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Área Útil:</span>
-                                        <input type="tel" name="area_util" placeholder="Quantidade de M&sup2;" value="{{ old('area_util') ?? $property->util }}"/>
+                                        <input type="tel" name="area_util" placeholder="Quantidade de M&sup2;" value="{{ old('area_util') ?? $property->area_util }}"/>
                                     </label>
                                 </div>
                             </div>

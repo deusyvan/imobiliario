@@ -79,7 +79,12 @@ class PropertyController extends Controller
      */
     public function update(PropertyRequest $request, $id)
     {
-        //
+        $property = Property::where('id',$id)->first();
+        $property->fill($request->all());//Dessa forma caso não informe nenhum checkbox não estará vindo aqui pra dentro não alterando o dado no banco de dados
+
+        $property->save();
+
+        var_dump($property->getAttributes());
     }
 
     /**
