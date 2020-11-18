@@ -37,10 +37,9 @@ class PropertyController extends Controller
      */
     public function store(PropertyRequest $request)
     {
-        $property = new Property();
-        $property->fill($request->all());
-
-        var_dump($property->getAttributes());
+        $createProperty = Property::create($request->all());
+        
+        var_dump($createProperty);
     }
 
     /**
