@@ -39,7 +39,9 @@ class PropertyController extends Controller
     {
         $createProperty = Property::create($request->all());
         
-        var_dump($createProperty);
+        return redirect()->route('admin.properties.edit',[
+            'property' => $createProperty->id
+        ])->with(['color' => 'green', 'message' => 'Imóvel cadastrado com sucesso!']);
     }
 
     /**
@@ -61,7 +63,10 @@ class PropertyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $property = Property::where('id',$id)->first();
+        return view('admin.properties.edit',[
+            'property' => $property
+        ]);
     }
 
     /**
