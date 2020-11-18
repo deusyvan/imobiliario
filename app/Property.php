@@ -69,6 +69,11 @@ class Property extends Model
         }
     }
 
+    public function getSalePriceAttribute($value)
+    {
+        return number_format($value,2,',','.');
+    }
+
     public function setRentPriceAttribute($value)
     {
         if(empty($value)){
