@@ -15,7 +15,12 @@ class CreatePropertyImagesTable extends Migration
     {
         Schema::create('property_images', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('property');
+            $table->string('path');
+            $table->boolean('cover')->nullable();
             $table->timestamps();
+
+            $table->foreign('property')->references('id')->on('properties')->onDelete('CASCADE');
         });
     }
 
