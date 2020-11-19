@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laradev\Http\Controllers\Controller;
 use Laradev\Http\Requests\Admin\Property as PropertyRequest;
 use Laradev\Property;
+use Laradev\PropertyImage;
 use Laradev\User;
 
 class PropertyController extends Controller
@@ -110,6 +111,19 @@ class PropertyController extends Controller
         $property->setViewOfTheSeaAttribute($request->view_of_the_sea);
 
         $property->save();
+
+        if($request->allFiles()){
+            foreach ($request->allFiles()['files'] as $image) {
+                $propertyImage = new PropertyImage();
+                $propertyImage->property = $property->id;
+                $propertyImage->path = $image->store('properties/'.$property->id);
+                $propertyImage->save();
+                unset($propertyImage);
+            }
+            var_dump($request->allFiles());
+        }
+
+        die;
 
         return redirect()->route('admin.properties.edit',[
             'property' => $property->id
