@@ -50,6 +50,16 @@ class Property extends Model
         'view_of_the_sea'
     ];
 
+    /** Relacionamento */
+    public function user()//Singular porque o imóvel só pode ter um único dono
+    {
+        /** Relacionamento (1:N)
+         * Chave estrangeira = user (dentro da tabela de imóveis qual se relaciona com o usuário)
+         * Chave local = id (chave dentro da tabela de usuário)
+        */
+        return $this->belongsTo(User::class,'user','id'); //belongsTo devolve apenas um único registro
+    }
+
     public function setSaleAttribute($value)
     {
         $this->attributes['sale'] = ($value == true || $value == 'on' ? 1 : 0);

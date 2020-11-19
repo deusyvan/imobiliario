@@ -80,7 +80,16 @@ class User extends Authenticatable
     /**Criando os relacionamentos */
     public function companies()
     {
-        return $this->hasMany(Company::class, 'id');
+        return $this->hasMany(Company::class, 'user','id');
+    }
+
+    public function properties()//Mais que um imóvel para o mesmo usuário
+    {
+        /** Relacionamento N:1
+         * Chave estrangeira = user (dentro da tabela de imóveis qual se relaciona com o usuário)
+         * Chave local = id (chave dentro da tabela de usuário)
+        */
+        return $this->hasMany(Property::class, 'user','id');
     }
 
     //Para mapear o cover para uma url em storage

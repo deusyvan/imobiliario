@@ -60,7 +60,7 @@ npm run dev
   - Criar Form Request (php artisan make:request Admin\Property)
   - Criar Migration (php artisan make:model Property -m)
     *Parametrizar o form com o fillable e realizar a migração: php artisan migrate
-  - Popular Banco de dados
+  - Popular Banco de dados (Não é o imóvel que possui o proprietário e sim o proprietário que possui o imóvel = relacionamento: apartir do usuário fazer o relacionamento de ida e de volta)
   - Colocar menu(imóveis) pra funcionar
   - Parametrizar as visões
 
