@@ -110,6 +110,8 @@ class Property extends Model
             $this->attributes['condominium'] = floatval($this->convertStringToDouble($value));
         }
     }
+    
+    /**Mutator */
 
     public function getCondominiumAttribute($value)
     {

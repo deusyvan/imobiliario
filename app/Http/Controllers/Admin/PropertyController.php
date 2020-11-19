@@ -82,9 +82,30 @@ class PropertyController extends Controller
         $property = Property::where('id',$id)->first();
         $property->fill($request->all());//Dessa forma caso não informe nenhum checkbox não estará vindo aqui pra dentro não alterando o dado no banco de dados
 
+        $property->setSaleAttribute($request->sale);
+        $property->setRentAttribute($request->rent);
+        $property->setAirConditioningAttribute($request->air_conditioning);
+        $property->setBarAttribute($request->bar);
+        $property->setLibraryAttribute($request->library);
+        $property->setBarbecueGrillAttribute($request->barbecue_grill);
+        $property->setAmericanKitchenAttribute($request->american_kitchen);
+        $property->setFittedKitchenAttribute($request->fitted_kitchen);
+        $property->setPantryAttribute($request->pantry);
+        $property->setEdiculeAttribute($request->edicule);
+        $property->setOfficeAttribute($request->office);
+        $property->setBathtubAttribute($request->bathtub);
+        $property->setFirePlaceAttribute($request->fireplace);
+        $property->setLavatoryAttribute($request->lavatory);
+        $property->setFurnishedAttribute($request->furnished);
+        $property->setPoolAttribute($request->pool);
+        $property->setSteamRoomAttribute($request->steam_room);
+        $property->setViewOfTheSeaAttribute($request->view_of_the_sea);
+
         $property->save();
 
-        var_dump($property->getAttributes());
+        return redirect()->route('admin.properties.edit',[
+            'property' => $property->id
+        ])->with(['color' => 'green', 'message' => 'Imóvel alterado com sucesso!']);
     }
 
     /**
