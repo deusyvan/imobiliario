@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laradev\Http\Controllers\Controller;
 use Laradev\Http\Requests\Admin\Property as PropertyRequest;
 use Laradev\Property;
+use Laradev\User;
 
 class PropertyController extends Controller
 {
@@ -26,7 +27,10 @@ class PropertyController extends Controller
      */
     public function create()
     {
-        return view('admin.properties.create');
+        $users = User::orderBy('name')->get();
+        return view('admin.properties.create',[
+            'users' => $users
+        ]);
     }
 
     /**
@@ -64,9 +68,10 @@ class PropertyController extends Controller
     public function edit($id)
     {
         $property = Property::where('id',$id)->first();
-        //var_dump($property->sale_price, $property->getAttributes());exit;//Pegando o getAttributes sabemos que não passa por dentro dos access e mutates
+        $users = User::orderBy('name')->get();
         return view('admin.properties.edit',[
-            'property' => $property
+            'property' => $property,
+            'users' => $users
         ]);
     }
 

@@ -89,8 +89,10 @@
                         <label class="label">
                             <span class="legend">Proprietário:</span>
                             <select name="user" class="select2">
-                                <option value="1">Deusyvan Faca</option>
-                                <option value="">Nome (documento)</option>
+                                <option value="">Selecione o proprietário</option>
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }} ({{ $user->document }})</option>
+                                @endforeach
                             </select>
                         </label>
 

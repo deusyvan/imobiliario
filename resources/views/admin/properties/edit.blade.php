@@ -97,8 +97,10 @@
                         <label class="label">
                             <span class="legend">Proprietário:</span>
                             <select name="user" class="select2">
-                                <option value="1">Deusyvan Faca</option>
-                                <option value="">Nome (documento)</option>
+                                <option value="">Selecione o proprietário</option>
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}" {{ ($user->id === $property->user ? 'selected' : '') }} >{{ $user->name }} ({{ $user->document }})</option>
+                                @endforeach
                             </select>
                         </label>
 
@@ -346,7 +348,7 @@
                 </div>
 
                 <div class="text-right mt-2">
-                    <button class="btn btn-large btn-green icon-check-square-o">Criar Imóvel</button>
+                    <button class="btn btn-large btn-green icon-check-square-o">Atualizar Imóvel</button>
                 </div>
             </form>
         </div>
