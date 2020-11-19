@@ -64,4 +64,6 @@ npm run dev
   - Colocar menu(imóveis) pra funcionar
   - Parametrizar as visões
 
+- Desenvolvendo Recursos [Imagens]
+  - Criar modelo e migration (php artisan make:model PropertyImage -m)
 
