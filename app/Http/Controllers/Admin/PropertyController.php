@@ -46,6 +46,16 @@ class PropertyController extends Controller
     public function store(PropertyRequest $request)
     {
         $createProperty = Property::create($request->all());
+
+        if($request->allFiles()){
+            foreach ($request->allFiles()['files'] as $image) {
+                $propertyImage = new PropertyImage();
+                $propertyImage->property = $createProperty->id;
+                $propertyImage->path = $image->store('properties/'.$createProperty->id);
+                $propertyImage->save();
+                unset($propertyImage);
+            }
+        }
         
         return redirect()->route('admin.properties.edit',[
             'property' => $createProperty->id
@@ -120,10 +130,7 @@ class PropertyController extends Controller
                 $propertyImage->save();
                 unset($propertyImage);
             }
-            var_dump($request->allFiles());
         }
-
-        die;
 
         return redirect()->route('admin.properties.edit',[
             'property' => $property->id
