@@ -17,7 +17,10 @@ class PropertyController extends Controller
      */
     public function index()
     {
-        return view('admin.properties.index');
+        $properties = Property::orderBy('id','DESC')->get();
+        return view('admin.properties.index',[
+            'properties' => $properties
+        ]);
     }
 
     /**
