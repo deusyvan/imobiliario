@@ -51,7 +51,7 @@ class PropertyController extends Controller
             foreach ($request->allFiles()['files'] as $image) {
                 $propertyImage = new PropertyImage();
                 $propertyImage->property = $createProperty->id;
-                $propertyImage->path = $image->store('properties/'.$createProperty->id);
+                $propertyImage->path = $image->storeAs('properties/' . $createProperty->id, str_slug($request->title) . '-' . str_replace('.', '', microtime(true)) . '.' . $image->extension());
                 $propertyImage->save();
                 unset($propertyImage);
             }
@@ -126,7 +126,7 @@ class PropertyController extends Controller
             foreach ($request->allFiles()['files'] as $image) {
                 $propertyImage = new PropertyImage();
                 $propertyImage->property = $property->id;
-                $propertyImage->path = $image->store('properties/'.$property->id);
+                $propertyImage->path = $image->storeAs('properties/' . $property->id, str_slug($request->title) . '-' . str_replace('.', '', microtime(true)) . '.' . $image->extension());
                 $propertyImage->save();
                 unset($propertyImage);
             }
