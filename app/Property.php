@@ -60,6 +60,12 @@ class Property extends Model
         return $this->belongsTo(User::class,'user','id'); //belongsTo devolve apenas um único registro
     }
 
+    public function images()
+    {
+        //Buscando as imagens de acordo com o relacionamento 1:N (1-imóvel : N-imagens) Tabela Properties possui a chave estrangeira: property que relaciona com o id do modelo
+        return $this->hasMany(PropertyImage::class, 'property','id')->orderBy('cover','ASC');
+    }
+
     public function setSaleAttribute($value)
     {
         $this->attributes['sale'] = ($value == true || $value == 'on' ? 1 : 0);

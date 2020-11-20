@@ -344,6 +344,15 @@
                         </label>
 
                         <div class="content_image"></div>
+
+                        <div class="property_image">
+                            @foreach ($property->images()->get() as $image)
+                                <div class="property_image_item">
+                                    <img src="{{ $image->url_cropped }}" alt="">
+                                </div>
+                            @endforeach
+                        </div>
+
                     </div>
                 </div>
 
