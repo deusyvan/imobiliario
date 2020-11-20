@@ -69,4 +69,6 @@ npm run dev
   - Executar a migrate aplicando no banco de dados (php artisan migrate):
     Se for o caso e precisar fazer um rollback: php artisan migrate:rollback --step=1 (desfaz o ultimo passo)
   - Desenvolver o modelo PropertyImage: Update e Create
+  - Listando as imagens com a criação de um mutate
+  - 
 
