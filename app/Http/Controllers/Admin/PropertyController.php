@@ -150,8 +150,21 @@ class PropertyController extends Controller
 
     public function imageSetCover(Request $request)
     {
-        var_dump($request->all());die;
-        return response()->json('Você chegou até o php e conseguiu retornar os dados');
+        
+        $imageSetCover = PropertyImage::where('id',$request->image)->first();//Busca a imagem completa(objeto)
+        $allImage = PropertyImage::where('property',$imageSetCover->property)->get();//Busca todas as imagens do imóvel
+        foreach ($allImage as $image) {
+            $image->cover = null;//Tornando todas as capas das imagens como null
+            $image->save();
+        }
+        $imageSetCover->cover = true;//Setando a imagem como capa(cover) do imóvel(property)
+        $imageSetCover->save();
+
+        $json = [
+            'success' => true
+        ];
+
+        return response()->json($json);
     }
     
     public function imageRemove()
