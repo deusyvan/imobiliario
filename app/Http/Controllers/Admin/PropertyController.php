@@ -147,4 +147,14 @@ class PropertyController extends Controller
     {
         //
     }
+
+    public function setImageCover()
+    {
+        //
+    }
+
+    public function imageRemove()
+    {
+        //
+    }
 }
