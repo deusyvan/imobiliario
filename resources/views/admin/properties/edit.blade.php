@@ -352,7 +352,7 @@
                                     <div class="property_image_actions">
                                         <a href="javascript:void(0)" class="btn btn-small icon-check icon-notext image-set-cover" 
                                             data-action=" {{ route('admin.properties.imageSetCover') }}"></a>
-                                        <a href="javascript:void(0)" class="btn btn-red btn-small icon-times icon-notext" 
+                                        <a href="javascript:void(0)" class="btn btn-red btn-small icon-times icon-notext image-remove" 
                                             data-action=" {{ route('admin.properties.imageRemove') }}"></a>
                                     </div>
                                 </div>
@@ -372,6 +372,13 @@
 @section('js')
     <script>
         $(function () {
+            //Carregando o token na página para o ajax, para funcionamento em qualquer requisição abaixo deste script
+            $.ajaxSetup({
+                headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+                }
+            });
+
             $('input[name="files[]"]').change(function (files) {
 
                 $('.content_image').text('');
@@ -403,6 +410,20 @@
                     alert(response); //Testando para verificar se o que foi escrito no php vai retornar aqui no response
                 }, 'json');
 
+            });
+
+            $('.image-remove').click(function(event) {
+                event.preventDefault();
+                var button = $(this);
+                //Para disparar um delete através de um javascript
+                $.ajax({
+                    url:button.data('action'),
+                    type:'DELETE',
+                    dataType: 'json',
+                    success: function(response) {
+                        alert(response); 
+                    }
+                });
             });
         });
     </script>

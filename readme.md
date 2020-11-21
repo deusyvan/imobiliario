@@ -81,4 +81,21 @@ npm run dev
      $.post(button.data('action'), {}, function(response){
       alert(response); //Testando para verificar se o que foi escrito no php vai retornar aqui no response
       }, 'json');
-    *Se por acaso retornar um 419 é porque esqueceu de informar o CSRF Token, pois toda requisição dentro do sistema precisa de um token.
+    *Se por acaso retornar um 419 é um bloqueio ocorrido porque esqueceu de informar o CSRF Token, pois toda requisição dentro do sistema precisa de um token, método de segurança na aplicação
+    *Se por acaso retornar um erro 500 deixou de renderizar a página
+  - Estrutura para testar gatilho de delete na action de imagens:
+    $('.image-remove').click(function(event) {
+        event.preventDefault();
+        var button = $(this);
+        //Para disparar um delete através de um javascript
+        $.ajax({
+            url:button.data('action'),
+            type:'DELETE',
+            dataType: 'json',
+            success: function(response) {
+                alert(response); 
+            }
+        });
+    });
+  
+  
