@@ -424,7 +424,13 @@
                     type:'DELETE',
                     dataType: 'json',
                     success: function(response) {
-                        alert(response); 
+                        if(response.success === true){
+                            //Pegar o 1º pai direto que possui a classe property_image_item e
+                            //Remove da exibição: fadeOut() e dispara uma função
+                            button.closest('.property_image_item').fadeOut(function(){
+                                $(this).remove();//Remove do html
+                            });
+                        }
                     }
                 });
             });

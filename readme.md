@@ -102,3 +102,4 @@ npm run dev
     -Buscando os parametros via request (id)
     -Salva no banco de dados a capa como true do imóvel e mostrando via javascript através do css
     -Exclui dos diretorios (cache e properties) e do banco de dados a imagem
+    -Exclui da visão (html)
