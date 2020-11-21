@@ -3,10 +3,12 @@
 namespace Laradev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Laradev\Http\Controllers\Controller;
 use Laradev\Http\Requests\Admin\Property as PropertyRequest;
 use Laradev\Property;
 use Laradev\PropertyImage;
+use Laradev\Support\Cropper;
 use Laradev\User;
 
 class PropertyController extends Controller
@@ -167,8 +169,15 @@ class PropertyController extends Controller
         return response()->json($json);
     }
     
-    public function imageRemove()
+    public function imageRemove(Request $request)
     {
-        return response()->json('Você chegou até o php e conseguiu retornar os dados de remove');
+        $imageDelete = PropertyImage::where('id',$request->image)->first();//Resgata a imagem que precisa remover
+        Storage::delete($imageDelete->path);//Deleta do diretorio a imagem conforme seu path
+        Cropper::flush($imageDelete->path);//Deleta do diretorio de cache da imagem pelo path
+        $imageDelete->delete();//Deleta a imagem no banco de dados
+        $json = [
+            'success' => true
+        ];
+        return response()->json($json);
     }
 }
