@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'],fun
 
         /** Imóveis */
         Route::post('properties/image-set-cover', 'PropertyController@imageSetCover')->name('properties.imageSetCover');
-        Route::delete('properties/image-remove', 'PropertyController@remove')->name('properties.remove');
+        Route::delete('properties/image-remove', 'PropertyController@imageRemove')->name('properties.imageRemove');
         Route::resource('properties', 'PropertyController');
     });
 

@@ -350,8 +350,10 @@
                                 <div class="property_image_item">
                                     <img src="{{ $image->url_cropped }}" alt="">
                                     <div class="property_image_actions">
-                                        <a href="" class="btn btn-small icon-check icon-notext"></a>
-                                        <a href="" class="btn btn-red btn-small icon-times icon-notext"></a>
+                                        <a href="javascript:void(0)" 
+                                        class="btn btn-small icon-check icon-notext" data-action=" {{ route('admin.properties.imageSetCover') }}"></a>
+                                        <a href="javascript:void(0)" 
+                                        class="btn btn-red btn-small icon-times icon-notext" data-action=" {{ route('admin.properties.imageRemove') }}"></a>
                                     </div>
                                 </div>
                             @endforeach
