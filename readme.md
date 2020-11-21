@@ -104,3 +104,4 @@ npm run dev
     -Exclui dos diretorios (cache e properties) e do banco de dados a imagem
     -Exclui da visão (html)
     -Identificar quem é a capa do imóvel na visão de usuarios(Locador)
+    -Caso não tenha nenhuma imagem mostrar a imagem padrão do sistema

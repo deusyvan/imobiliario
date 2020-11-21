@@ -3,6 +3,7 @@
 namespace Laradev;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 
 class Property extends Model
 {
@@ -70,6 +71,15 @@ class Property extends Model
     {
         $images = $this->images();//Busca todas a imagens do referido imvóvel
         $cover = $images->where('cover',1)->first(['path']);//Nas imagens busca apenas aquela que é a capa e somente a coluna path
+        if(!$cover){
+            $images = $this->images();//Caso não tenha busca as imagens do imóvel
+            $cover = $images->first(['path']);//Não havendo nenhuma como cover define a primeira na busca
+        }
+
+        //Caso não exista nenhuma imagem mostre a padrão
+        if(empty($cover['path']) || !File::exists('../public/storage/' . $cover['path'])){
+            return url(asset('backend/assets/images/realty.jpeg'));//Url completa para a padrão
+        }
         return $cover['path'];//retorna cover no índice path
     }
 
