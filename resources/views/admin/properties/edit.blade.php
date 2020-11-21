@@ -407,7 +407,10 @@
                  * 'json' = o tipo do retorno
                 */
                 $.post(button.data('action'), {}, function(response){
-                    alert(response); //Testando para verificar se o que foi escrito no php vai retornar aqui no response
+                    if(response.success === true){
+                        $('.property_image').find('a.btn-green').removeClass('btn-green');
+                        button.addClass('btn-green');
+                    }
                 }, 'json');
 
             });

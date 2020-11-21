@@ -100,4 +100,4 @@ npm run dev
   
   - Desenvolver a regra de negócio da gestão de mídia
     -Buscando os parametros via request (id)
-    -Salva no banco de dados a capa como true do imóvel
+    -Salva no banco de dados a capa como true do imóvel e mostrando via javascript através do css
