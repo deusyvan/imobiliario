@@ -66,6 +66,13 @@ class Property extends Model
         return $this->hasMany(PropertyImage::class, 'property','id')->orderBy('cover','ASC');
     }
 
+    public function cover()
+    {
+        $images = $this->images();//Busca todas a imagens do referido imvóvel
+        $cover = $images->where('cover',1)->first(['path']);//Nas imagens busca apenas aquela que é a capa e somente a coluna path
+        return $cover['path'];//retorna cover no índice path
+    }
+
     public function setSaleAttribute($value)
     {
         $this->attributes['sale'] = ($value == true || $value == 'on' ? 1 : 0);

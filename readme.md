@@ -103,3 +103,4 @@ npm run dev
     -Salva no banco de dados a capa como true do imóvel e mostrando via javascript através do css
     -Exclui dos diretorios (cache e properties) e do banco de dados a imagem
     -Exclui da visão (html)
+    -Identificar quem é a capa do imóvel na visão de usuarios(Locador)
