@@ -98,4 +98,5 @@ npm run dev
         });
     });
   
-  
+  - Desenvolver a regra de negócio da gestão de mídia
+    -Buscando os parametros via request (id)
