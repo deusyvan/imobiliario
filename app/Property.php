@@ -4,6 +4,8 @@ namespace Laradev;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Laradev\Support\Cropper;
 
 class Property extends Model
 {
@@ -80,7 +82,7 @@ class Property extends Model
         if(empty($cover['path']) || !File::exists('../public/storage/' . $cover['path'])){
             return url(asset('backend/assets/images/realty.jpeg'));//Url completa para a padrão
         }
-        return $cover['path'];//retorna cover no índice path
+        return Storage::url(Cropper::thumb($cover['path'],1366,768));//retorna cover no índice path convertida em uma url
     }
 
     public function setSaleAttribute($value)

@@ -105,3 +105,4 @@ npm run dev
     -Exclui da visão (html)
     -Identificar quem é a capa do imóvel na visão de usuarios(Locador)
     -Caso não tenha nenhuma imagem mostrar a imagem padrão do sistema
+    -Transforma o path em uma url do storage

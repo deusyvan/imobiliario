@@ -409,7 +409,6 @@
                                     <div class="realty_list">
                                         @if($user->properties()->get())
                                             @foreach ($user->properties()->get() as $property)
-                                            {{ $property->cover() }}
                                                 <div class="realty_list_item mb-1">
                                                     <div class="realty_list_item_actions_stats">
                                                         <img src="{{ $property->cover() }}" alt="">
