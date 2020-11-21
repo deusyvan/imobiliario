@@ -350,10 +350,10 @@
                                 <div class="property_image_item">
                                     <img src="{{ $image->url_cropped }}" alt="">
                                     <div class="property_image_actions">
-                                        <a href="javascript:void(0)" 
-                                        class="btn btn-small icon-check icon-notext" data-action=" {{ route('admin.properties.imageSetCover') }}"></a>
-                                        <a href="javascript:void(0)" 
-                                        class="btn btn-red btn-small icon-times icon-notext" data-action=" {{ route('admin.properties.imageRemove') }}"></a>
+                                        <a href="javascript:void(0)" class="btn btn-small icon-check icon-notext image-set-cover" 
+                                            data-action=" {{ route('admin.properties.imageSetCover') }}"></a>
+                                        <a href="javascript:void(0)" class="btn btn-red btn-small icon-times icon-notext" 
+                                            data-action=" {{ route('admin.properties.imageRemove') }}"></a>
                                     </div>
                                 </div>
                             @endforeach
@@ -388,6 +388,19 @@
                     };
                     reader.readAsDataURL(value);
                 });
+            });
+            //Ajax Buscando a classe onde possui as actions de imagens
+            $('.image-set-cover').click(function(event) {
+                event.preventDefault();
+                //Na criação da variavel recebe os valores predefinidos no click da referida ação do link(botão)
+                var button = $(this);
+                /** Aponta pra onde vai o ajax no controller, tornando uma url dinâmica = 'action'
+                 * {} Pelo post vamos informar um id
+                 * Function que será dispara
+                 * 'json' = o tipo do retorno
+                */
+                $.post(button.data('action'), {}, function name(params){}, 'json');
+
             });
         });
     </script>
