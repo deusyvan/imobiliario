@@ -399,7 +399,9 @@
                  * Function que será dispara
                  * 'json' = o tipo do retorno
                 */
-                $.post(button.data('action'), {}, function name(params){}, 'json');
+                $.post(button.data('action'), {}, function(response){
+                    alert(response); //Testando para verificar se o que foi escrito no php vai retornar aqui no response
+                }, 'json');
 
             });
         });

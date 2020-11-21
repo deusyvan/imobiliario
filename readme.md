@@ -73,4 +73,12 @@ npm run dev
   - Ambiente para realizar as ações de definir cover e remover imagens:
     - href="javascript:void(0)" = para não realizar nenhuma ação no sistema
     - data-action=" {{ }}" = modalidade usada para trabalhar com ajax 
-
+  - Estrutura para testar a function na route do php e retornar um json:
+    Aponta pra onde vai o ajax no controller, tornando uma url dinâmica = 'action'
+     {} Pelo post vamos informar um id
+     Function que será dispara
+     'json' = o tipo do retorno
+     $.post(button.data('action'), {}, function(response){
+      alert(response); //Testando para verificar se o que foi escrito no php vai retornar aqui no response
+      }, 'json');
+    *Se por acaso retornar um 419 é porque esqueceu de informar o CSRF Token, pois toda requisição dentro do sistema precisa de um token.
