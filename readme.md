@@ -106,3 +106,6 @@ npm run dev
     -Identificar quem é a capa do imóvel na visão de usuarios(Locador)
     -Caso não tenha nenhuma imagem mostrar a imagem padrão do sistema
     -Transforma o path em uma url do storage
+
+  - Desenvolver recursos [Contrato]
+    - Criar modelo e migration (php artisan make:model Contract -m)
