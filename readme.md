@@ -109,3 +109,6 @@ npm run dev
 
   - Desenvolver recursos [Contrato]
     - Criar modelo e migration (php artisan make:model Contract -m)
+    - Criar Rotas de contrato
+    - Colocar parametros da ligacao: Identificar os campos
+    - Editar visões (view)
