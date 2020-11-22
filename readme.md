@@ -112,5 +112,5 @@ npm run dev
     - Criar Rotas de contrato
     - Criando Controller
     - Confere rotas, métodos, classes : php artisan route:list
-    - Colocar parametros da ligacao: Identificar os campos
+    - Colocar parametros da ligacao: Identificar os campos (parametrizar Controller com a view)
     - Editar visões (view)
