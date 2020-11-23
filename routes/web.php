@@ -12,6 +12,7 @@
 */
 
 use Laradev\Http\Controllers\Admin\CompanyController;
+use Laradev\Http\Controllers\Admin\ContractController;
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'],function(){
     /** Formulário de Login */
@@ -36,6 +37,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'],fun
         Route::resource('properties', 'PropertyController');
 
         /** Contratos */
+        Route::post('contracts/get-data-owner', 'ContractController@getDataOwner')->name('contracts.getDataOwner');
         Route::resource('contracts', 'ContractController');
     });
 

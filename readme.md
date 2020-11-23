@@ -120,4 +120,7 @@ npm run dev
   - Complexidades Ajax:
     * Gatilhos:
       - Alimentar os lessers e lessees, através de um escopo
-      - Na mudança do select buscar via ajax e preencher outras informações
+      - Na mudança do select buscar via ajax e preencher outras informações. Essa mudança dispara uma função
+      que efetua um post em uma determinada rota que retorna os parametros nescessários.
+      - Coloca-se um action na atributo do select para ser disparado a rota quando efetuar o post
+

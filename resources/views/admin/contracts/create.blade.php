@@ -59,7 +59,7 @@
                                 <div class="label_g2">
                                     <label class="label">
                                         <span class="legend">Proprietário:</span>
-                                        <select class="select2" name="owner">
+                                        <select class="select2" name="owner" data-action="{{ route('admin.contracts.getDataOwner') }}">
                                             <option value="">Informe um Cliente</option>
                                             @foreach ($lessors->get() as $lessor)
                                                 <option value="{{ $lessor->id }}">{{ $lessor->name }} ({{ $lessor->document }})</option>
@@ -236,7 +236,9 @@
         $(function() {
             $('select[name="owner"]').change(function() {
                 var owner = $(this);
-                alert(owner.val());
+                $.post(owner.data('action'),{},function (response) {
+                    
+                },'json');
             });
         });
     </script>

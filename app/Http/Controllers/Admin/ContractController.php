@@ -88,4 +88,9 @@ class ContractController extends Controller
     {
         //
     }
+
+    public function getDataOwner()
+    {
+        
+    }
 }
