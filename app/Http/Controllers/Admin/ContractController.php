@@ -89,8 +89,13 @@ class ContractController extends Controller
         //
     }
 
-    public function getDataOwner()
+    public function getDataOwner(Request $request)
     {
-        
+        $lessor = User::where('id',$request->user)->first([
+            'id',
+            'civil_status',
+            'spouse_name',
+            'spouse_document'
+        ]);
     }
 }

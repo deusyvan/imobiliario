@@ -236,7 +236,7 @@
         $(function() {
             $('select[name="owner"]').change(function() {
                 var owner = $(this);
-                $.post(owner.data('action'),{},function (response) {
+                $.post(owner.data('action'),{user: owner.val()},function (response) {
                     
                 },'json');
             });
