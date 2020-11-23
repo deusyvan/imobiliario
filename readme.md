@@ -115,4 +115,4 @@ npm run dev
     - Colocar parametros da ligacao: Identificar os campos (parametrizar Controller com a view)
     - Editar visões (view)
     - Alterar a migration incluindo os campos e relacionamentos e migrar (php artisan migrate)
-  
+    - Alterar modelo incluindo o fillable para validações
