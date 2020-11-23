@@ -4,6 +4,7 @@ namespace Laradev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Laradev\Http\Controllers\Controller;
+use Laradev\User;
 
 class ContractController extends Controller
 {
@@ -24,7 +25,12 @@ class ContractController extends Controller
      */
     public function create()
     {
-        return view('admin.contracts.create');
+        $lessors = User::lessors();
+        $lessees = User::lessees();
+        return view('admin.contracts.create',[
+            'lessors' => $lessors,
+            'lessees' => $lessees
+        ]);
     }
 
     /**

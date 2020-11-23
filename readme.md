@@ -116,3 +116,8 @@ npm run dev
     - Editar visões (view)
     - Alterar a migration incluindo os campos e relacionamentos e migrar (php artisan migrate)
     - Alterar modelo incluindo o fillable para validações
+
+  - Complexidades Ajax:
+   - Gatilhos:
+    * Proprietário:
+      - Alimentar os lessers e lessees, através de um escopo

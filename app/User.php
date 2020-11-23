@@ -103,6 +103,17 @@ class User extends Authenticatable
         return ''; //Para o caso de cover for vazio
     }
 
+    //Criando um escopo
+    public function scopeLessors($query)
+    {
+        return $query->where('lessor',true);
+    }
+
+    public function scopeLessees($query)
+    {
+        return $query->where('lessee',true);
+    }
+
     // Tratamento de dados para chegar no Bd
     public function setLessorAttribute($value)
     {

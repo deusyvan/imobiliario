@@ -60,7 +60,10 @@
                                     <label class="label">
                                         <span class="legend">Proprietário:</span>
                                         <select class="select2" name="owner">
-                                            <option value="0">Informe um Cliente</option>
+                                            <option value="">Informe um Cliente</option>
+                                            @foreach ($lessors->get() as $lessor)
+                                                <option value="{{ $lessor->id }}">{{ $lessor->name }} ({{ $lessor->document }})</option>
+                                            @endforeach
                                         </select>
                                     </label>
 
@@ -93,6 +96,9 @@
                                         <span class="legend">Adquirente:</span>
                                         <select name="acquirer" class="select2">
                                             <option value="" selected>Informe um Cliente</option>
+                                            @foreach ($lessees->get() as $lessee)
+                                                <option value="{{ $lessee->id }}">{{ $lessee->name }} ({{ $lessee->document }})</option>
+                                            @endforeach
                                         </select>
                                     </label>
 
