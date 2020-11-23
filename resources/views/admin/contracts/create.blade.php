@@ -233,6 +233,13 @@
 @endsection
 @section('js')
     <script>
+        //Carregando o token na página para o ajax, para funcionamento em qualquer requisição abaixo deste script
+        $.ajaxSetup({
+            headers:{
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+            }
+        });
+
         $(function() {
             $('select[name="owner"]').change(function() {
                 var owner = $(this);
