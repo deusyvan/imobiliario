@@ -234,7 +234,10 @@
 @section('js')
     <script>
         $(function() {
-            $('select[name="owner"]').change();
+            $('select[name="owner"]').change(function() {
+                var owner = $(this);
+                alert(owner.val());
+            });
         });
     </script>
 @endsection
