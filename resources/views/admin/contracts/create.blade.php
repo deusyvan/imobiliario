@@ -231,3 +231,10 @@
     </div>
 </section> 
 @endsection
+@section('js')
+    <script>
+        $(function() {
+            alert('teste');
+        });
+    </script>
+@endsection

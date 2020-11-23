@@ -118,6 +118,6 @@ npm run dev
     - Alterar modelo incluindo o fillable para validações
 
   - Complexidades Ajax:
-   - Gatilhos:
-    * Proprietário:
+    * Gatilhos:
       - Alimentar os lessers e lessees, através de um escopo
+      - Na mudança do select buscar via ajax e preencher outras informações
