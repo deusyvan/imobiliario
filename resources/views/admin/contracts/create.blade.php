@@ -234,7 +234,7 @@
 @section('js')
     <script>
         $(function() {
-            alert('teste');
+            $('select[name="owner"]').change();
         });
     </script>
 @endsection
