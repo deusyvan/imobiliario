@@ -98,20 +98,25 @@ class ContractController extends Controller
             'spouse_document'
         ]);
 
-        //Define uma validação para aceita somente married e separated
-        $civilStatusSpouseRequired = [
-            'married',
-            'separated'
-        ];
-
-        //Se existir no array de lessor define spouse senão é nulo.
-        if(in_array($lessor->civil_status, $civilStatusSpouseRequired)){
-            $spouse = [
-                'spouse_name' => $lessor->spouse_name,
-                'spouse_document' => $lessor->spouse_document
-            ];
-        } else {
+        //Verifica se existe um proprietario senão torna spouse valor nulo
+        if(empty($lessor)){
             $spouse = null;
+        }else{
+            //Define uma validação para aceita somente married e separated
+            $civilStatusSpouseRequired = [
+                'married',
+                'separated'
+            ];
+    
+            //Se existir no array de lessor define spouse senão é nulo.
+            if(in_array($lessor->civil_status, $civilStatusSpouseRequired)){
+                $spouse = [
+                    'spouse_name' => $lessor->spouse_name,
+                    'spouse_document' => $lessor->spouse_document
+                ];
+            } else {
+                $spouse = null;
+            }
         }
 
         $json['spouse'] = $spouse;

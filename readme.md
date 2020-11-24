@@ -124,4 +124,5 @@ npm run dev
       que efetua um post em uma determinada rota que retorna os parametros nescessários.
       - Coloca-se um action no atributo do select para ser disparado a rota quando efetuar o post
       - A função da rota é disparada dependendo de civilStatusSpouseRequired que deve ser 'married' ou 'separated'
+      
 

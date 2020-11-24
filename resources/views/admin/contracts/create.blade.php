@@ -240,11 +240,30 @@
             }
         });
 
+        //Chama a função ao selecionar um proprietario para carregar dados e prencher outros select
         $(function() {
             $('select[name="owner"]').change(function() {
                 var owner = $(this);
                 $.post(owner.data('action'),{user: owner.val()},function (response) {
-                    
+                    //Com os dados em response vamos popular outros selects
+                    $('select[name="owner_spouse"]').html('');//Limpando o select de qualquer dado que existir
+                    //Se existir vamos preencher o select com o conteúdo
+                    if(response.spouse){
+                       $('select[name="owner_spouse"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informar'
+                       }));
+
+                       $('select[name="owner_spouse"]').append($('<option>',{
+                          value: 1,
+                          text: response.spouse.spouse_name + '(' + response.spouse.spouse_document + ')'
+                       }));
+                    }else{
+                        $('select[name="owner_spouse"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informado'
+                       }));
+                    }
                 },'json');
             });
         });
