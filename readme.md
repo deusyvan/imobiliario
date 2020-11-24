@@ -118,11 +118,18 @@ npm run dev
     - Alterar modelo incluindo o fillable para validações
 
   - Complexidades Ajax:
-    * Gatilhos:
+    * Gatilhos Proprietario:
       - Alimentar os lessers e lessees, através de um escopo
       - Na mudança do select buscar via ajax e preencher outras informações. Essa mudança dispara uma função
       que efetua um post em uma determinada rota que retorna os parametros nescessários.
       - Coloca-se um action no atributo do select para ser disparado a rota quando efetuar o post
       - A função da rota é disparada dependendo de civilStatusSpouseRequired que deve ser 'married' ou 'separated'
-      
+    * Gatilhos Adquirente:
+      - Duplicar as ações
+      - Duplicar rota
+      - Duplicar método no controlador
+      - Duplicar gatilho dentro do javascript
+      - Duplicar o data-action, elemento que fica dentro do adquirente
+      - 
+
 

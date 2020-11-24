@@ -94,7 +94,7 @@
                                 <div class="label_g2">
                                     <label class="label">
                                         <span class="legend">Adquirente:</span>
-                                        <select name="acquirer" class="select2">
+                                        <select name="acquirer" class="select2" data-action="{{ route('admin.contracts.getDataAcquirer') }}">
                                             <option value="" selected>Informe um Cliente</option>
                                             @foreach ($lessees->get() as $lessee)
                                                 <option value="{{ $lessee->id }}">{{ $lessee->name }} ({{ $lessee->document }})</option>
@@ -242,6 +242,7 @@
 
         //Chama a função ao selecionar um proprietario para carregar dados e prencher outros select
         $(function() {
+            /**Proprietário */
             $('select[name="owner"]').change(function() {
                 var owner = $(this);
                 $.post(owner.data('action'),{user: owner.val()},function (response) {
@@ -268,7 +269,7 @@
                     //Companies - Com os dados em response vamos popular select de empresas
                     $('select[name="owner_company"]').html('');//Limpando o select de qualquer dado que existir
                     //Se existir vamos preencher o select com o conteúdo
-                    if(response.companies.length){
+                    if(response.companies != null && response.companies.length){
                        $('select[name="owner_company"]').append($('<option>',{
                           value: 0,
                           text: 'Não informar'
@@ -289,6 +290,57 @@
                        }));
                     }
 
+
+                },'json');
+            });
+
+            /**Adquirente */
+            $('select[name="acquirer"]').change(function() {
+                var acquirer = $(this);
+                $.post(acquirer.data('action'),{user: acquirer.val()},function (response) {
+                    //Spouse - Com os dados em response vamos popular select de conjuge
+                    $('select[name="acquirer_spouse"]').html('');//Limpando o select de qualquer dado que existir
+                    //Se existir vamos preencher o select com o conteúdo
+                    if(response.spouse){
+                       $('select[name="acquirer_spouse"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informar'
+                       }));
+
+                       $('select[name="acquirer_spouse"]').append($('<option>',{
+                          value: 1,
+                          text: response.spouse.spouse_name + '(' + response.spouse.spouse_document + ')'
+                       }));
+                    }else{
+                        $('select[name="acquirer_spouse"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informado'
+                       }));
+                    }
+
+                    //Companies - Com os dados em response vamos popular select de empresas
+                    $('select[name="acquirer_company"]').html('');//Limpando o select de qualquer dado que existir
+                    //Se existir vamos preencher o select com o conteúdo
+                    if(response.companies != null && response.companies.length){
+                       $('select[name="acquirer_company"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informar'
+                       }));
+
+                       //Fazer um foreach no jquery para passar em todas as empresas, dados que vem do controller em companies
+                       $.each(response.companies, function(key, value){
+                           $('select[name="acquirer_company"]').append($('<option>',{
+                              value: value.id,
+                              text: value.alias_name + '(' + value.document_company + ')'
+                           }));
+                       });
+
+                    }else{
+                        $('select[name="acquirer_company"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informado'
+                       }));
+                    }
 
                 },'json');
             });

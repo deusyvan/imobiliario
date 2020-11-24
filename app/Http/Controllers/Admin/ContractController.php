@@ -101,6 +101,7 @@ class ContractController extends Controller
         //Verifica se existe um proprietario senão torna spouse valor nulo
         if(empty($lessor)){
             $spouse = null;
+            $companies = null;
         }else{
             //Define uma validação para aceita somente married e separated
             $civilStatusSpouseRequired = [
@@ -117,17 +118,61 @@ class ContractController extends Controller
             } else {
                 $spouse = null;
             }
+    
+            //Buscar as empresas do proprietario através do relacionamento
+            $companies = $lessor->companies()->get([
+                'id',
+                'alias_name',
+                'document_company'
+                ]);//Trazendo apenas os dados nescessários
         }
 
-        //Buscar as empresas do proprietario através do relacionamento
-        $companies = $lessor->companies()->get([
+        $json['spouse'] = $spouse;
+        $json['companies'] = (!empty($companies) && $companies->count() ? $companies : null);
+
+        return response()->json($json);//return response pois estamos trabalhando com ajax
+    }
+
+    public function getDataAcquirer(Request $request)
+    {
+        $lessee = User::where('id',$request->user)->first([
             'id',
-            'alias_name',
-            'document_company'
-        ]);//Trazendo apenas os dados nescessários
+            'civil_status',
+            'spouse_name',
+            'spouse_document'
+        ]);
+
+        //Verifica se existe um adquirente senão torna spouse valor nulo
+        if(empty($lessee)){
+            $spouse = null;
+            $companies = null;
+        }else{
+            //Define uma validação para aceita somente married e separated
+            $civilStatusSpouseRequired = [
+                'married',
+                'separated'
+            ];
+    
+            //Se existir no array de lessee define spouse senão é nulo.
+            if(in_array($lessee->civil_status, $civilStatusSpouseRequired)){
+                $spouse = [
+                    'spouse_name' => $lessee->spouse_name,
+                    'spouse_document' => $lessee->spouse_document
+                ];
+            } else {
+                $spouse = null;
+            }
+            //Buscar as empresas do adquirente através do relacionamento
+            $companies = $lessee->companies()->get([
+                'id',
+                'alias_name',
+                'document_company'
+            ]);//Trazendo apenas os dados nescessários
+        }
+
 
         $json['spouse'] = $spouse;
-        $json['companies'] = $companies;
+        $json['companies'] = (!empty($companies) && $companies->count() ? $companies : null);
 
         return response()->json($json);//return response pois estamos trabalhando com ajax
     }
