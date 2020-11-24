@@ -119,7 +119,15 @@ class ContractController extends Controller
             }
         }
 
+        //Buscar as empresas do proprietario através do relacionamento
+        $companies = $lessor->companies()->get([
+            'id',
+            'alias_name',
+            'document_company'
+        ]);//Trazendo apenas os dados nescessários
+
         $json['spouse'] = $spouse;
+        $json['companies'] = $companies;
 
         return response()->json($json);//return response pois estamos trabalhando com ajax
     }

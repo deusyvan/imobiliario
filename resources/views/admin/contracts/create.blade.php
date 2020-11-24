@@ -245,7 +245,7 @@
             $('select[name="owner"]').change(function() {
                 var owner = $(this);
                 $.post(owner.data('action'),{user: owner.val()},function (response) {
-                    //Com os dados em response vamos popular outros selects
+                    //Spouse - Com os dados em response vamos popular select de conjuge
                     $('select[name="owner_spouse"]').html('');//Limpando o select de qualquer dado que existir
                     //Se existir vamos preencher o select com o conteúdo
                     if(response.spouse){
@@ -264,6 +264,32 @@
                           text: 'Não informado'
                        }));
                     }
+
+                    //Companies - Com os dados em response vamos popular select de empresas
+                    $('select[name="owner_company"]').html('');//Limpando o select de qualquer dado que existir
+                    //Se existir vamos preencher o select com o conteúdo
+                    if(response.companies.length){
+                       $('select[name="owner_company"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informar'
+                       }));
+
+                       //Fazer um foreach no jquery para passar em todas as empresas, dados que vem do controller em companies
+                       $.each(response.companies, function(key, value){
+                           $('select[name="owner_company"]').append($('<option>',{
+                              value: value.id,
+                              text: value.alias_name + '(' + value.document_company + ')'
+                           }));
+                       });
+
+                    }else{
+                        $('select[name="owner_company"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informado'
+                       }));
+                    }
+
+
                 },'json');
             });
         });
