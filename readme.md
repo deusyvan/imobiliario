@@ -140,6 +140,8 @@ npm run dev
               }, 'json');
     - Alimenta as posições e retorna o json para response
     - Passando via js as posições passadas no response e populando-as na view 
+    - Disponibilizar em toda a aplicação o preenchimento dos checkbox de venda e locação, lembrando de re-compilar o js:
+      npm run dev
     
 
 

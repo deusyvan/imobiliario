@@ -202,6 +202,16 @@ $(function () {
         normalizeSpouse();
     });
 
+    //ENABLE INPUT TO PRICE
+    $('input[type="checkbox"][name="sale"]').change(function(){
+        if($(this).get(0).checked){//Verica se o elemento está checado
+            //encapsula o elemento
+            $('input[name="sale_price"]').attr('disable',false);
+        } else {
+            $('input[name="sale_price"]').attr('disable',true);
+        }
+    });
+
 });
 
 // TINYMCE INIT
