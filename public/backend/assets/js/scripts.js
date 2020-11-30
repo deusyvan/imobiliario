@@ -206,9 +206,9 @@ $(function () {
     $('input[type="checkbox"][name="sale"]').change(function(){
         if($(this).get(0).checked){//Verica se o elemento está checado
             //encapsula o elemento
-            $('input[name="sale_price"]').attr('disable',false);
+            $('input[name="sale_price"]').attr('disabled',false);
         } else {
-            $('input[name="sale_price"]').attr('disable',true);
+            $('input[name="sale_price"]').attr('disabled',true);
         }
     });
 
