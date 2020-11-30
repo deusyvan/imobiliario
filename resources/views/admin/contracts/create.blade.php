@@ -127,8 +127,9 @@
 
                             <div class="app_collapse_content">
                                 <label class="label">
-                                    <span class="legend">Imóvel:</span>
-                                    <select name="property" class="select2">
+                                    <span class="legend">Imóvel:</span><!-- Adicionando um gatilho de property -->
+                                    <select name="property" class="select2"
+                                        data-action="{{ route('admin.contratcs.getDataProperty') }}">
                                         <option value="">Não informado</option>
                                     </select>
                                 </label>

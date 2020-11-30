@@ -189,4 +189,9 @@ class ContractController extends Controller
 
         return response()->json($json);//return response pois estamos trabalhando com ajax
     }
+
+    public function getDataProperty(Request $request)
+    {
+        
+    }
 }
