@@ -138,6 +138,7 @@ npm run dev
     - Estrutura de script pronta para properties:
       $.post(property.data('action'), {property: property.val()}, function (response) {
               }, 'json');
+    - Alimenta as posições e retorna o json para response
     
 
 

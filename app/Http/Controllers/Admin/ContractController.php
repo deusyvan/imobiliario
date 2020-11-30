@@ -4,6 +4,7 @@ namespace Laradev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Laradev\Http\Controllers\Controller;
+use Laradev\PropertyImage;
 use Laradev\User;
 
 class ContractController extends Controller
@@ -192,6 +193,20 @@ class ContractController extends Controller
 
     public function getDataProperty(Request $request)
     {
-        
+        //Fazer a pesquisa do imóvel, saber se existe ou não para prevenir qualquer tipo de erro e já alimentar as posições através do js
+        $property = PropertyImage::where('id', $request->property)->first(); //$request->property é o nome da posição enviado por parametro no js
+        if (empty($property)) {
+            $property = null;
+        } else {
+            $property = [
+                'id' => $property->id,
+                'sale_price' => $property->sale_price,
+                'rent_price' => $property->rent_price,
+                'tribute' => $property->tribute,
+                'condominium' => $property->condominium,            ];
+        }
+
+        $json['property'] = $property;
+        return response()->json($json);
     }
 }
