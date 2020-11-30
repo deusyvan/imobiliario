@@ -4,6 +4,7 @@ namespace Laradev\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Laradev\Http\Controllers\Controller;
+use Laradev\Http\Requests\Admin\Contract;
 use Laradev\Property;
 use Laradev\User;
 
@@ -40,7 +41,7 @@ class ContractController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Contract $request)
     {
         //
     }

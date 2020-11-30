@@ -147,6 +147,7 @@ npm run dev
     php artisan make:request Admin\Contract
     - Colocando as mensagens de erro na validação
     - Fazendo as validações passarem pelo request e se dar erro enviar para msg de erro na página
+    - Mudar a requisição de dependência no controlador para que seja o form request e se encontrar erro faça o redirect pack juntamente com as mensagens
 
 
 
