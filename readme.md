@@ -148,6 +148,7 @@ npm run dev
     - Colocando as mensagens de erro na validação
     - Fazendo as validações passarem pelo request e se dar erro enviar para msg de erro na página
     - Mudar a requisição de dependência no controlador para que seja o form request e se encontrar erro faça o redirect pack juntamente com as mensagens
+    - Para evitar conflito mas dar um apelido ao nosso request ContractRequest
 
 
 
