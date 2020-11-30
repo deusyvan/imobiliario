@@ -130,6 +130,8 @@ npm run dev
       - Duplicar método no controlador
       - Duplicar gatilho dentro do javascript
       - Duplicar o data-action, elemento que fica dentro do adquirente
-      - 
+
+  - Contratos
+    - Alimentar os imóveis pelo change de seleção de proprietário
 
 

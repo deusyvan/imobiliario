@@ -102,6 +102,7 @@ class ContractController extends Controller
         if(empty($lessor)){
             $spouse = null;
             $companies = null;
+            $properties = null;
         }else{
             //Define uma validação para aceita somente married e separated
             $civilStatusSpouseRequired = [
@@ -125,10 +126,22 @@ class ContractController extends Controller
                 'alias_name',
                 'document_company'
                 ]);//Trazendo apenas os dados nescessários
+            //Buscando as propriedades do proprietario
+            $getProperties = $lessor->properties()->get();
+            $property = [];
+            foreach ($getProperties as $property) {
+                $properties[] = [
+                    'id' => $property->id,
+                    'description' => '#' . $property->id . ' ' . $property->street . ', ' .
+                        $property->number . ' ' . $property->neighborhood . ' ' .
+                        $property->city . '/' . $property->state . ' (' . $property->zipcode . ')'
+                ];
+            }
         }
 
         $json['spouse'] = $spouse;
         $json['companies'] = (!empty($companies) && $companies->count() ? $companies : null);
+        $json['properties'] = (!empty($properties) ? $properties : null);
 
         return response()->json($json);//return response pois estamos trabalhando com ajax
     }
