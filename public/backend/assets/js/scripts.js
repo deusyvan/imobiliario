@@ -212,6 +212,16 @@ $(function () {
         }
     });
 
+    //ENABLE INPUT TO PRICE
+    $('input[type="checkbox"][name="rent"]').change(function(){
+        if($(this).get(0).checked){//Verica se o elemento está checado
+            //encapsula o elemento
+            $('input[name="rent_price"]').attr('disabled',false);
+        } else {
+            $('input[name="rent_price"]').attr('disabled',true);
+        }
+    });
+
 });
 
 // TINYMCE INIT

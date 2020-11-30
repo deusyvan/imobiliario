@@ -142,6 +142,6 @@ npm run dev
     - Passando via js as posições passadas no response e populando-as na view 
     - Disponibilizar em toda a aplicação o preenchimento dos checkbox de venda e locação, lembrando de re-compilar o js:
       npm run dev
-    
+    - Aplicando disabled em toda a aplicação para o nosso checkbox de rent
 
 
