@@ -375,7 +375,10 @@
                 var property = $(this);//Havendo ação em change dispara uma função que define tud para var property
                 //Dispara um post pra dentro da rota, seus parametros, disparando uma função com retorno(response) do tipo json
                 $.post(property.data('action'), {property: property.val()}, function (response) {
-
+                    //Preenchendo os inputs pelo response recuperado
+                    //encapsulando o imput sale_price recebe como valor o response, na posicao property(que é devolvido pelo php) 
+                    //retornando o valor do nosso input: sale_price
+                    $('input[name="sale_price"]').val(response.property.sale_price);
                 }, 'json');
             });
 
