@@ -143,5 +143,8 @@ npm run dev
     - Disponibilizar em toda a aplicação o preenchimento dos checkbox de venda e locação, lembrando de re-compilar o js:
       npm run dev
     - Aplicando disabled em toda a aplicação para o nosso checkbox de rent
+    - Persistência das informações via ajax através do request e colocando as validacções:
+    php artisan make:request Admin\Contract
+
 
 
