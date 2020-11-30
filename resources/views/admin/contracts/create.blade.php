@@ -23,7 +23,13 @@
     @include('admin.contracts.filter')
 
     <div class="dash_content_app_box">
-
+        @if($errors->all())
+            @foreach ($errors->all() as $error)
+                @message(['color' => 'orange'])
+                <p class="icon-asterisk">{{ $error }}</p>
+                @endmessage
+            @endforeach
+        @endif
         <div class="nav">
             <ul class="nav_tabs">
                 <li class="nav_tabs_item">
