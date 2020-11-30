@@ -290,6 +290,29 @@
                        }));
                     }
 
+                     //Properties - Com os dados em response vamos popular select de propriedades
+                     $('select[name="property"]').html('');//Limpando o select de qualquer dado que existir
+                    //Se existir vamos preencher o select com o conteúdo
+                    if(response.properties != null && response.properties.length){
+                       $('select[name="property"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informar'
+                       }));
+
+                       //Fazer um foreach no jquery para passar em todas as prpriedades, dados que vem do controller em properties
+                       $.each(response.properties, function(key, value){
+                           $('select[name="property"]').append($('<option>',{
+                              value: value.id,
+                              text: value.description
+                           }));
+                       });
+
+                    }else{
+                        $('select[name="property"]').append($('<option>',{
+                          value: 0,
+                          text: 'Não informado'
+                       }));
+                    }
 
                 },'json');
             });
