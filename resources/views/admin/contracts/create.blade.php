@@ -380,8 +380,14 @@
                     //retornando o valor do nosso input: sale_price
                     if(response.property != null){
                         $('input[name="sale_price"]').val(response.property.sale_price);
+                        $('input[name="rent_price"]').val(response.property.rent_price);
+                        $('input[name="tribute"]').val(response.property.tribute);
+                        $('input[name="condominium"]').val(response.property.condominium);
                     } else {//Seta valor caso o response venha a ser nulo
                         $('input[name="sale_price"]').val('0,00');
+                        $('input[name="rent_price"]').val('0,00');
+                        $('input[name="tribute"]').val('0,00');
+                        $('input[name="condominium"]').val('0,00');
                     }
 
 
