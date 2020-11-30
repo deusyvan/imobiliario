@@ -139,6 +139,7 @@ npm run dev
       $.post(property.data('action'), {property: property.val()}, function (response) {
               }, 'json');
     - Alimenta as posições e retorna o json para response
+    - Passando via js as posições passadas no response para popular a view
     
 
 

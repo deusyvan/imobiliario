@@ -129,7 +129,7 @@
                                 <label class="label">
                                     <span class="legend">Imóvel:</span><!-- Adicionando um gatilho de property -->
                                     <select name="property" class="select2"
-                                        data-action="{{ route('admin.contratcs.getDataProperty') }}">
+                                        data-action="{{ route('admin.contracts.getDataProperty') }}">
                                         <option value="">Não informado</option>
                                     </select>
                                 </label>
