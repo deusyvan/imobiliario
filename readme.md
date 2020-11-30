@@ -146,6 +146,7 @@ npm run dev
     - Persistência das informações via ajax através do request e colocando as validacções:
     php artisan make:request Admin\Contract
     - Colocando as mensagens de erro na validação
+    - Fazendo as validações passarem pelo request e se dar erro enviar para msg de erro na página
 
 
 

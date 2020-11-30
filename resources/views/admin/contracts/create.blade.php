@@ -42,8 +42,8 @@
 
             <div class="nav_tabs_content">
                 <div id="parts">
-                    <form action="" method="post" class="app_form">
-
+                    <form action="{{ route('admin.contracts.store') }}" method="post" class="app_form">
+                        @csrf
                         <div class="label_gc">
                             <span class="legend">Finalidade:</span>
                             <label class="label">
