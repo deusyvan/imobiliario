@@ -378,7 +378,13 @@
                     //Preenchendo os inputs pelo response recuperado
                     //encapsulando o imput sale_price recebe como valor o response, na posicao property(que é devolvido pelo php) 
                     //retornando o valor do nosso input: sale_price
-                    $('input[name="sale_price"]').val(response.property.sale_price);
+                    if(response.property != null){
+                        $('input[name="sale_price"]').val(response.property.sale_price);
+                    } else {//Seta valor caso o response venha a ser nulo
+                        $('input[name="sale_price"]').val('0,00');
+                    }
+
+
                 }, 'json');
             });
 
