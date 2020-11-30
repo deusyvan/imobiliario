@@ -135,6 +135,9 @@ npm run dev
     - Alimentar os imóveis pelo change de seleção de proprietário
     - no script js: Dispara um post pra dentro da rota, seus parametros, disparando uma função com retorno(response) do tipo json:
       $.post(property.data('action'), {}, function (response) {}, 'json');
+    - Estrutura de script pronta para properties:
+      $.post(property.data('action'), {property: property.val()}, function (response) {
+              }, 'json');
     
 
 

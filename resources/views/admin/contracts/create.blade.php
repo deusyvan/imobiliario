@@ -374,7 +374,9 @@
             $('select[name="property"').change(function () {
                 var property = $(this);//Havendo ação em change dispara uma função que define tud para var property
                 //Dispara um post pra dentro da rota, seus parametros, disparando uma função com retorno(response) do tipo json
-                $.post(property.data('action'), {}, function (response) {}, 'json');
+                $.post(property.data('action'), {property: property.val()}, function (response) {
+
+                }, 'json');
             });
 
         });
