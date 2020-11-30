@@ -368,6 +368,15 @@
 
                 },'json');
             });
+
+            //Estrutura do gatilho de properties
+            //encapsular o seletor e disparar a ação de change:
+            $('select[name="property"').change(function () {
+                var property = $(this);//Havendo ação em change dispara uma função que define tud para var property
+                //Dispara um post pra dentro da rota, seus parametros, disparando uma função com retorno(response) do tipo json
+                $.post(property.data('action'), {}, function (response) {}, 'json');
+            });
+
         });
     </script>
 @endsection
