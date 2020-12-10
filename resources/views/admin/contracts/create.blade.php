@@ -47,11 +47,11 @@
                         <div class="label_gc">
                             <span class="legend">Finalidade:</span>
                             <label class="label">
-                                <input type="checkbox" name="sale"><span>Venda</span>
+                                <input type="checkbox" name="sale" {{ (old('sale') == 'on' ? 'checked' :  '') }}><span>Venda</span>
                             </label>
 
                             <label class="label">
-                                <input type="checkbox" name="rent"><span>Locação</span>
+                                <input type="checkbox" name="rent" {{ (old('rent') == 'on' ? 'checked' :  '') }}><span>Locação</span>
                             </label>
                         </div>
 
@@ -68,7 +68,7 @@
                                         <select class="select2" name="owner" data-action="{{ route('admin.contracts.getDataOwner') }}">
                                             <option value="">Informe um Cliente</option>
                                             @foreach ($lessors->get() as $lessor)
-                                                <option value="{{ $lessor->id }}">{{ $lessor->name }} ({{ $lessor->document }})</option>
+                                                <option value="{{ $lessor->id }}" {{ (old('owner') == $lessor->id ? 'selected' : '') }}>{{ $lessor->name }} ({{ $lessor->document }})</option>
                                             @endforeach
                                         </select>
                                     </label>

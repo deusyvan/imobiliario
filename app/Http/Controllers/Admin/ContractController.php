@@ -130,7 +130,7 @@ class ContractController extends Controller
                 ]);//Trazendo apenas os dados nescessários
             //Buscando as propriedades do proprietario
             $getProperties = $lessor->properties()->get();
-            $property = [];
+            $property = [];//Criando um vetor
             foreach ($getProperties as $property) {
                 $properties[] = [
                     'id' => $property->id,
