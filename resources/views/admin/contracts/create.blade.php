@@ -44,6 +44,11 @@
                 <div id="parts">
                     <form action="{{ route('admin.contracts.store') }}" method="post" class="app_form">
                         @csrf
+                        <input type="hidden" name="owner_spouse_persist" value="{{ old('owner_spouse') }}">
+                        <input type="hidden" name="owner_company_persist" value="{{ old('owner_company') }}">
+                        <input type="hidden" name="acquirer_spouse_persist" value="{{ old('acquirer_spouse') }}">
+                        <input type="hidden" name="acquirer_company_persist" value="{{ old('acquirer_company') }}">
+                        <input type="hidden" name="property_persist" value="{{ old('property') }}">
                         <div class="label_gc">
                             <span class="legend">Finalidade:</span>
                             <label class="label">
@@ -103,7 +108,7 @@
                                         <select name="acquirer" class="select2" data-action="{{ route('admin.contracts.getDataAcquirer') }}">
                                             <option value="" selected>Informe um Cliente</option>
                                             @foreach ($lessees->get() as $lessee)
-                                                <option value="{{ $lessee->id }}">{{ $lessee->name }} ({{ $lessee->document }})</option>
+                                                <option value="{{ $lessee->id }}" {{ (old('acquirer') == $lessee->id ? 'selected' : '') }} >{{ $lessee->name }} ({{ $lessee->document }})</option>
                                             @endforeach
                                         </select>
                                     </label>
@@ -144,13 +149,13 @@
                                     <label class="label">
                                         <span class="legend">Valor de Venda:</span>
                                         <input type="tel" name="sale_price" class="mask-money"
-                                               placeholder="Valor de Venda" disabled/>
+                                               placeholder="Valor de Venda" {{ (old('sale') != 'on' ? 'disabled' : '') }}/>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Valor de Locação:</span>
                                         <input type="text" name="rent_price" class="mask-money"
-                                               placeholder="Valor de Locação" disabled/>
+                                               placeholder="Valor de Locação" {{ (old('rent') != 'on' ? 'disabled' : '') }}/>
                                     </label>
                                 </div>
 
@@ -172,44 +177,44 @@
                                     <label class="label">
                                         <span class="legend">Dia de Vencimento:</span>
                                         <select name="due_date" class="select2">
-                                            <option value="1">1º</option>
-                                            <option value="2">2/mês</option>
-                                            <option value="3">3/mês</option>
-                                            <option value="4">4/mês</option>
-                                            <option value="5">5/mês</option>
-                                            <option value="6">6/mês</option>
-                                            <option value="7">7/mês</option>
-                                            <option value="8">8/mês</option>
-                                            <option value="9">9/mês</option>
-                                            <option value="10">10/mês</option>
-                                            <option value="11">11/mês</option>
-                                            <option value="12">12/mês</option>
-                                            <option value="13">13/mês</option>
-                                            <option value="14">14/mês</option>
-                                            <option value="15">15/mês</option>
-                                            <option value="16">16/mês</option>
-                                            <option value="17">17/mês</option>
-                                            <option value="18">18/mês</option>
-                                            <option value="19">19/mês</option>
-                                            <option value="20">20/mês</option>
-                                            <option value="21">21/mês</option>
-                                            <option value="22">22/mês</option>
-                                            <option value="23">23/mês</option>
-                                            <option value="24">24/mês</option>
-                                            <option value="25">25/mês</option>
-                                            <option value="26">26/mês</option>
-                                            <option value="27">27/mês</option>
-                                            <option value="28">28/mês</option>
+                                            <option value="1" {{ (old('due_date') == 1 ? 'selected' : '') }}>1º</option>
+                                            <option value="2" {{ (old('due_date') == 2 ? 'selected' : '') }}>2/mês</option>
+                                            <option value="3" {{ (old('due_date') == 3 ? 'selected' : '') }}>3/mês</option>
+                                            <option value="4" {{ (old('due_date') == 4 ? 'selected' : '') }}>4/mês</option>
+                                            <option value="5" {{ (old('due_date') == 5 ? 'selected' : '') }}>5/mês</option>
+                                            <option value="6" {{ (old('due_date') == 6 ? 'selected' : '') }}>6/mês</option>
+                                            <option value="7" {{ (old('due_date') == 7 ? 'selected' : '') }}>7/mês</option>
+                                            <option value="8" {{ (old('due_date') == 8 ? 'selected' : '') }}>8/mês</option>
+                                            <option value="9" {{ (old('due_date') == 9 ? 'selected' : '') }}>9/mês</option>
+                                            <option value="10" {{ (old('due_date') == 10 ? 'selected' : '') }}>10/mês</option>
+                                            <option value="11" {{ (old('due_date') == 11 ? 'selected' : '') }}>11/mês</option>
+                                            <option value="12" {{ (old('due_date') == 12 ? 'selected' : '') }}>12/mês</option>
+                                            <option value="13" {{ (old('due_date') == 13 ? 'selected' : '') }}>13/mês</option>
+                                            <option value="14" {{ (old('due_date') == 14 ? 'selected' : '') }}>14/mês</option>
+                                            <option value="15" {{ (old('due_date') == 15 ? 'selected' : '') }}>15/mês</option>
+                                            <option value="16" {{ (old('due_date') == 16 ? 'selected' : '') }}>16/mês</option>
+                                            <option value="17" {{ (old('due_date') == 17 ? 'selected' : '') }}>17/mês</option>
+                                            <option value="18" {{ (old('due_date') == 18 ? 'selected' : '') }}>18/mês</option>
+                                            <option value="19" {{ (old('due_date') == 19 ? 'selected' : '') }}>19/mês</option>
+                                            <option value="20" {{ (old('due_date') == 20 ? 'selected' : '') }}>20/mês</option>
+                                            <option value="21" {{ (old('due_date') == 21 ? 'selected' : '') }}>21/mês</option>
+                                            <option value="22" {{ (old('due_date') == 22 ? 'selected' : '') }}>22/mês</option>
+                                            <option value="23" {{ (old('due_date') == 23 ? 'selected' : '') }}>23/mês</option>
+                                            <option value="24" {{ (old('due_date') == 24 ? 'selected' : '') }}>24/mês</option>
+                                            <option value="25" {{ (old('due_date') == 25 ? 'selected' : '') }}>25/mês</option>
+                                            <option value="26" {{ (old('due_date') == 26 ? 'selected' : '') }}>26/mês</option>
+                                            <option value="27" {{ (old('due_date') == 27 ? 'selected' : '') }}>27/mês</option>
+                                            <option value="28" {{ (old('due_date') == 28 ? 'selected' : '') }}>28/mês</option>
                                         </select>
                                     </label>
 
                                     <label class="label">
                                         <span class="legend">Prazo do Contrato (Em meses)</span>
                                         <select name="deadline" class="select2">
-                                            <option value="12">12 meses</option>
-                                            <option value="24">24 meses</option>
-                                            <option value="36">36 meses</option>
-                                            <option value="48">48 meses</option>
+                                            <option value="12" {{ (old('deadline') == 12 ? 'selected' : '') }}>12 meses</option>
+                                            <option value="24" {{ (old('deadline') == 24 ? 'selected' : '') }}>24 meses</option>
+                                            <option value="36" {{ (old('deadline') == 36 ? 'selected' : '') }}>36 meses</option>
+                                            <option value="48" {{ (old('deadline') == 48 ? 'selected' : '') }}>48 meses</option>
                                         </select>
                                     </label>
                                 </div>
@@ -217,7 +222,7 @@
                                 <label class="label">
                                     <span class="legend">Data de Início:</span>
                                     <input type="tel" name="start_at" class="mask-date" placeholder="Data de Início"
-                                           value=""/>
+                                        value="{{ old('start_at') }}"/>
                                 </label>
                             </div>
                         </div>
@@ -240,96 +245,92 @@
 @endsection
 @section('js')
     <script>
-        //Carregando o token na página para o ajax, para funcionamento em qualquer requisição abaixo deste script
-        $.ajaxSetup({
-            headers:{
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
-            }
-        });
+         //Chama a função ao selecionar um proprietario para carregar dados e prencher outros select
+         $(function() {
 
-        //Chama a função ao selecionar um proprietario para carregar dados e prencher outros select
-        $(function() {
-            /**Proprietário */
-            $('select[name="owner"]').change(function() {
-                var owner = $(this);
-                $.post(owner.data('action'),{user: owner.val()},function (response) {
-                    //Spouse - Com os dados em response vamos popular select de conjuge
-                    $('select[name="owner_spouse"]').html('');//Limpando o select de qualquer dado que existir
-                    //Se existir vamos preencher o select com o conteúdo
-                    if(response.spouse){
-                       $('select[name="owner_spouse"]').append($('<option>',{
-                          value: 0,
-                          text: 'Não informar'
-                       }));
-
-                       $('select[name="owner_spouse"]').append($('<option>',{
-                          value: 1,
-                          text: response.spouse.spouse_name + '(' + response.spouse.spouse_document + ')'
-                       }));
-                    }else{
-                        $('select[name="owner_spouse"]').append($('<option>',{
-                          value: 0,
-                          text: 'Não informado'
-                       }));
-                    }
-
-                    //Companies - Com os dados em response vamos popular select de empresas
-                    $('select[name="owner_company"]').html('');//Limpando o select de qualquer dado que existir
-                    //Se existir vamos preencher o select com o conteúdo
-                    if(response.companies != null && response.companies.length){
-                       $('select[name="owner_company"]').append($('<option>',{
-                          value: 0,
-                          text: 'Não informar'
-                       }));
-
-                       //Fazer um foreach no jquery para passar em todas as empresas, dados que vem do controller em companies
-                       $.each(response.companies, function(key, value){
-                           $('select[name="owner_company"]').append($('<option>',{
-                              value: value.id,
-                              text: value.alias_name + '(' + value.document_company + ')'
-                           }));
-                       });
-
-                    }else{
-                        $('select[name="owner_company"]').append($('<option>',{
-                          value: 0,
-                          text: 'Não informado'
-                       }));
-                    }
-
-                     //Properties - Com os dados em response vamos popular select de propriedades
-                     $('select[name="property"]').html('');//Limpando o select de qualquer dado que existir
-                    //Se existir vamos preencher o select com o conteúdo
-                    if(response.properties != null && response.properties.length){
-                       $('select[name="property"]').append($('<option>',{
-                          value: 0,
-                          text: 'Não informar'
-                       }));
-
-                       //Fazer um foreach no jquery para passar em todas as prpriedades, dados que vem do controller em properties
-                       $.each(response.properties, function(key, value){
-                           $('select[name="property"]').append($('<option>',{
-                              value: value.id,
-                              text: value.description
-                           }));
-                       });
-
-                    }else{
-                        $('select[name="property"]').append($('<option>',{
-                          value: 0,
-                          text: 'Não informado'
-                       }));
-                    }
-
-                },'json');
+            //Carregando o token na página para o ajax, para funcionamento em qualquer requisição abaixo deste script
+            $.ajaxSetup({
+                headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+                }
             });
 
-            /**Adquirente */
-            $('select[name="acquirer"]').change(function() {
-                var acquirer = $(this);
-                $.post(acquirer.data('action'),{user: acquirer.val()},function (response) {
-                    //Spouse - Com os dados em response vamos popular select de conjuge
-                    $('select[name="acquirer_spouse"]').html('');//Limpando o select de qualquer dado que existir
+            function setFieldOwner(response){
+                //Spouse - Com os dados em response vamos popular select de conjuge
+                $('select[name="owner_spouse"]').html('');//Limpando o select de qualquer dado que existir
+                //Se existir vamos preencher o select com o conteúdo
+                if(response.spouse){
+                    $('select[name="owner_spouse"]').append($('<option>',{
+                        value: 0,
+                        text: 'Não informar'
+                    }));
+
+                    $('select[name="owner_spouse"]').append($('<option>',{
+                        value: 1,
+                        text: response.spouse.spouse_name + '(' + response.spouse.spouse_document + ')',
+                        selected: ( $('input[name="owner_spouse_persist"]').val() != 0 ? 'selected' : false)
+                    }));
+                }else{
+                    $('select[name="owner_spouse"]').append($('<option>',{
+                        value: 0,
+                        text: 'Não informado'
+                    }));
+                }
+
+                //Companies - Com os dados em response vamos popular select de empresas
+                $('select[name="owner_company"]').html('');//Limpando o select de qualquer dado que existir
+                //Se existir vamos preencher o select com o conteúdo
+                if(response.companies != null && response.companies.length){
+                    $('select[name="owner_company"]').append($('<option>',{
+                        value: 0,
+                        text: 'Não informar'
+                    }));
+
+                    //Fazer um foreach no jquery para passar em todas as empresas, dados que vem do controller em companies
+                    $.each(response.companies, function(key, value){
+                        $('select[name="owner_company"]').append($('<option>',{
+                            value: value.id,
+                            text: value.alias_name + '(' + value.document_company + ')',
+                            selected: ( $('input[name="owner_company_persist"]').val() != 0 && $('input[name="owner_company_persist"]').val() == value.id ? 'selected' : false)
+                        }));
+                    });
+
+                }else{
+                    $('select[name="owner_company"]').append($('<option>',{
+                        value: 0,
+                        text: 'Não informado'
+                    }));
+                }
+
+                    //Properties - Com os dados em response vamos popular select de propriedades
+                    $('select[name="property"]').html('');//Limpando o select de qualquer dado que existir
+                //Se existir vamos preencher o select com o conteúdo
+                if(response.properties != null && response.properties.length){
+                    $('select[name="property"]').append($('<option>',{
+                        value: 0,
+                        text: 'Não informar'
+                    }));
+
+                    //Fazer um foreach no jquery para passar em todas as prpriedades, dados que vem do controller em properties
+                    $.each(response.properties, function(key, value){
+                        $('select[name="property"]').append($('<option>',{
+                            value: value.id,
+                            text: value.description,
+                            selected: ( $('input[name="property_persist"]').val() != 0 && $('input[name="property_persist"]').val() == value.id ? 'selected' : false)
+                        }));
+                    });
+
+                }else{
+                    $('select[name="property"]').append($('<option>',{
+                        value: 0,
+                        text: 'Não informado'
+                    }));
+                }
+            }
+
+            function setFieldAcquirer(response){
+                //Spouse - Com os dados em response vamos popular select de conjuge
+                $('select[name="acquirer_spouse"]').html('');//Limpando o select de qualquer dado que existir
                     //Se existir vamos preencher o select com o conteúdo
                     if(response.spouse){
                        $('select[name="acquirer_spouse"]').append($('<option>',{
@@ -339,7 +340,8 @@
 
                        $('select[name="acquirer_spouse"]').append($('<option>',{
                           value: 1,
-                          text: response.spouse.spouse_name + '(' + response.spouse.spouse_document + ')'
+                          text: response.spouse.spouse_name + '(' + response.spouse.spouse_document + ')',
+                          selected: ( $('input[name="acquirer_spouse_persist"]').val() != 0 ? 'selected' : false)
                        }));
                     }else{
                         $('select[name="acquirer_spouse"]').append($('<option>',{
@@ -361,7 +363,8 @@
                        $.each(response.companies, function(key, value){
                            $('select[name="acquirer_company"]').append($('<option>',{
                               value: value.id,
-                              text: value.alias_name + '(' + value.document_company + ')'
+                              text: value.alias_name + '(' + value.document_company + ')',
+                              selected: ( $('input[name="acquirer_company_persist"]').val() != 0 && $('input[name="acquirer_company_persist"]').val() == value.id ? 'selected' : false)
                            }));
                        });
 
@@ -371,17 +374,10 @@
                           text: 'Não informado'
                        }));
                     }
+            }
 
-                },'json');
-            });
-
-            //Estrutura do gatilho de properties
-            //encapsular o seletor e disparar a ação de change:
-            $('select[name="property"').change(function () {
-                var property = $(this);//Havendo ação em change dispara uma função que define tud para var property
-                //Dispara um post pra dentro da rota, seus parametros, disparando uma função com retorno(response) do tipo json
-                $.post(property.data('action'), {property: property.val()}, function (response) {
-                    //Preenchendo os inputs pelo response recuperado
+            function setFieldProperty(response){
+                //Preenchendo os inputs pelo response recuperado
                     //encapsulando o imput sale_price recebe como valor o response, na posicao property(que é devolvido pelo php) 
                     //retornando o valor do nosso input: sale_price
                     if(response.property != null){
@@ -395,11 +391,54 @@
                         $('input[name="tribute"]').val('0,00');
                         $('input[name="condominium"]').val('0,00');
                     }
+            }
+       
+            /**2 Gatilho para owner (Proprietário) */
+            $('select[name="owner"]').change(function() {
+                var owner = $(this);
+                $.post(owner.data('action'),{user: owner.val()},function (response) {
+                    setFieldOwner(response);
+                },'json');
+            });
 
+            if( $('select[name="owner"]').val() != 0 ){
+                var owner = $('select[name="owner"]');
+                $.post(owner.data('action'),{user: owner.val()},function (response) {
+                    setFieldOwner(response);
+                },'json');
+            }
 
+            /**2 Gatilho para acquirer (Adquirente) */
+            $('select[name="acquirer"]').change(function() {
+                var acquirer = $(this);
+                $.post(acquirer.data('action'),{user: acquirer.val()},function (response) {
+                    setFieldAcquirer(response);
+                },'json');
+            });
+
+            if( $('select[name="acquirer"]').val() != 0 ){
+                var acquirer = $('select[name="acquirer"]');
+                $.post(acquirer.data('action'),{user: acquirer.val()},function (response) {
+                    setFieldAcquirer(response);
+                },'json');
+            }
+
+            /**2 Gatilho de properties (imovel)*/
+            //encapsular o seletor e disparar a ação de change:
+            $('select[name="property"').change(function () {
+                var property = $(this);//Havendo ação em change dispara uma função que define tud para var property
+                //Dispara um post pra dentro da rota, seus parametros, disparando uma função com retorno(response) do tipo json
+                $.post(property.data('action'), {property: property.val()}, function (response) {
+                    setFieldProperty(response);
                 }, 'json');
             });
 
+            if( $('input[name="property_persist"]').val() > 0 ){
+                var property = $('select[name="property"]');
+                $.post(property.data('action'),{property:  $('input[name="property_persist"]').val()},function (response) {
+                    setFieldProperty(response);
+                },'json');
+            }
         });
     </script>
 @endsection
