@@ -11,6 +11,15 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
+        /* $user = new User();
+        $user->name = 'Deusyvan2';
+        $user->email = 'deusyvan2@gmail.com';
+        $user->document = '65805585121';
+        $user->spouse_document = '65805585121';
+        
+        $user->password = bcrypt('teste');
+        $user->save(); */
+        //dd(Auth::check());
         if(Auth::check() === true){
           return redirect()->route('admin.home');  
         }

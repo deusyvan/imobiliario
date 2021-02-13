@@ -5,7 +5,8 @@ $(function(){
           'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
         }
     });
-    $('form[name="login"]').submit(function(event){
+    //$('form[name="login"]').submit(function(event){ //Depreciado
+    $('form[name="login"]').on("submit",function(event){
         event.preventDefault();
 
         const form = $(this);

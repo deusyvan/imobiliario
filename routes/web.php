@@ -47,4 +47,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'],fun
     Route::get('logout', 'AuthController@logout')->name('logout');
 });
 
-
+/* 
+Route::get('route', 'Controller@action')->middleware('throttle:20,1);
+20 tentativas permitidas a cada minuto
+ */
