@@ -1,5 +1,12 @@
-Permissões de pastas:
+Adicionando deploy automatico na maquina de desenvolvimento = pasta do projeto: dfsweb
+git remote add deploy dfswebcombr@dfsweb.com.br:/home2/dfswebcombr/public_html/app.git
 
+commit 
+push
+deploy
+
+
+Permissões de pastas:
 Olá Deusyvan Ferreira, tenta executar essa linha no seu terminal na pasta "html" 
 
 find * -type d -exec chmod 2755 {} \;
