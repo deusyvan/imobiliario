@@ -1,16 +1,26 @@
 Adicionando deploy automatico na maquina de desenvolvimento = pasta do projeto: dfsweb
 git remote add deploy dfswebcombr@dfsweb.com.br:/home2/dfswebcombr/public_html/app.git
 
-commit 
-push
-deploy
+git commit add 
+git push deploy master
+git push origin master
+-------------
+find * -type d -exec chmod 755 {} \;
+find * -type f -exec chmod 644 {} \;
+chmod +x app.git/hooks/post-receive
+--------------
+composer update
+--------------
+Criar banco de dados
+Criar arquivo .env
+Apontar dominio para public
+--------------
+php artisan key:generate
+php artisan storage:link
+chmod 777 -R storage/
+--------------
 
 
-Permissões de pastas:
-Olá Deusyvan Ferreira, tenta executar essa linha no seu terminal na pasta "html" 
-
-find * -type d -exec chmod 2755 {} \;
-assim terá permissão nas pastas
 
 - Criando AuthController não é resource
 php artisan make:controller Admin\AuthController
